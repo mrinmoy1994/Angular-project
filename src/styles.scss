@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 9px;
+
+.timer {
+    font-weight: bolder; 
+    color: rgb(3, 3, 170); 
+    // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .timer_text {
+        margin-top: -1rem;
+        font-weight: bolder; 
+        font-size: 8px;
+        padding: 0%;
+    }
+}
+}
+

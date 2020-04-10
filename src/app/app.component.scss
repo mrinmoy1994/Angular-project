@@ -1,0 +1,12 @@
+p {
+    font-family: Lato;
+}
+
+.background-image {
+    background-image: url("/assets/back.jpg");
+    background-size: cover;
+    .content {
+        height: 100%;  
+        padding: 5rem 0rem;
+    }
+}

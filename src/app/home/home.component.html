@@ -1,51 +1,40 @@
 <div class="gameplay">
-  <div class="col-sm-12" style="text-align: center; background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); padding: 0%; padding-top: 1%; padding-left: 1%; margin-bottom: 2%; color: white; border-radius: 5px 5px 0px 0px;height: 10%;">
-    <img src="./assets/LOGO2.png" height="90%" width="25%" />
+  <div class="col-sm-12 header_icon">
+    <img src="./assets/LOGO2.png"/>
   </div>
 
-    <div *ngIf="matches" style="padding: 0%; height: 76vh;">
-    <div class="scroll">
-      <div *ngFor="let match of matches" style="padding: 2%; font-size: xx-small;">
-        <div  class="col-sm-12" style="padding:0%; padding-top:1%; margin-bottom: 2%; border-radius: 10px; background-image: linear-gradient(rgb(15, 138, 238),rgb(232, 237, 240));">
-          <div class="col-sm-12" style="color: rgb(27, 27, 92); font-size: smaller;">
-            <div class="col-sm-5" style="text-align: left;"><span style="font-weight: bold;color: rgb(13, 13, 148);font-size: small;">{{match.totalLeagues}} Leagues</span></div>
-            <div class="col-sm-7" style="text-align: right;"><span style="font-weight: bold;color: rgb(13, 13, 148);font-size: small;"> Total Winning ammout Rs. {{match.totalMoney}}/- </span></div>
+    <div class="col-sm-12 scroll" *ngIf="matches">
+      <div *ngFor="let match of matches">
+        <div  class="col-sm-12 league">
+          <div class="col-sm-12">
+            <div class="col-sm-5 text_align_left"><span class="font_color">{{match.totalLeagues}} Leagues</span></div>
+            <div class="col-sm-7 text_align_right"><span  class="font_color"> Total Winning ammout Rs. {{match.totalMoney}}/- </span></div>
           </div>
           <div class="col-sm-12">
             <div class="col-sm-3"><img [src]="match.team1pic" alt={{match.team1}} width="90%" /></div>
             <div class="col-sm-6">
-              <div style="padding-top: 5%; font-weight: bolder; font-size: 12px; color: blue;">{{match.team1}} vs {{match.team2}} </div>
-              <div style="font-weight: bolder; font-size: 12px; padding: 0%;">STARTS IN </div>
+              <div class="team">{{match.team1}} vs {{match.team2}} </div>
+              <div class="starts_in">STARTS IN </div>
 
-              <div style="padding: 0%;margin-top: -2%; font-size: small; font-weight: bolder; color: rgb(3, 3, 170); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><countdown [text]="text" units="Days | Hours | Minutes | Seconds"  end={{match.matchTimeinSec}} style="border-radius: 10px; background-color: aqua ; padding: 0%; margin: 0;"></countdown>
+              <div class="timer">
+                <countdown [text]="text" units="Days | Hours | Minutes | Seconds"  end={{match.matchTimeinSec}}></countdown>
+                <div class="timer_text">DD : HH : MM : SS </div>  
               </div> 
-              <div style="margin-top: -8%;font-weight: bolder; font-size: 8px;padding: 0%;">DD : HH : MM : SS </div>           
+                       
             </div>
             <div class="col-sm-3"><img [src]="match.team2pic" alt={{match.team2}} width="90%" /></div>
           </div>
           
-          <div class="col-sm-12" style="padding-bottom: 2%; text-align: center;">
-            <div class="col-sm-3 matchMenu" style="margin-left: 2%;margin-right: 6%;" (click)="onCreateTeamClick(match.id)">Create Team</div>
-            <div class="col-sm-3 matchMenu" style="margin-right: 5%;margin-left: 5%;">Join Tournament</div>
-            <div class="col-sm-3 matchMenu" style="margin-left: 6%;" (click)="onShowTeamsClick(match.id)">My team</div>
+          <div class="col-sm-12">
+            <div class="col-sm-4 matchMenu" (click)="onCreateTeamClick(match.id)">Create Team</div>
+            <div class="col-sm-4 matchMenu">Join Tournament</div>
+            <div class="col-sm-4 matchMenu" (click)="onShowTeamsClick(match.id)">My team</div>
           </div>
         </div>
       </div>
+    
     </div>
-    </div>
-
-  <div class="col-sm-12" style="position: sticky;font-weight: bold; text-align: center;top: 86%;text-align: left;height: 8%; background-image:linear-gradient(rgba(83, 83, 247, 0.986),rgb(7, 7, 112, 0.884)); padding: 0%; color: white; border-radius: 0px 0px 5px 5px;">
-    <div class="col-sm-3 bottomMenu">
-      <div><mat-icon >home</mat-icon></div>Home
-    </div>
-    <div class="col-sm-3 bottomMenu">
-      <div><mat-icon >account_box</mat-icon></div>Profile
-    </div>
-    <div class="col-sm-3 bottomMenu">
-      <div><mat-icon >assignment</mat-icon></div>Contests</div>
-    <div class="col-sm-3 bottomMenu">
-      <div><mat-icon>menu</mat-icon></div>Menu</div>
-  </div>
+<app-footer></app-footer>
 </div>
 
 
