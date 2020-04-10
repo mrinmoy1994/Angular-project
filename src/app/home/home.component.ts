@@ -96,6 +96,25 @@ export class HomeComponent implements OnInit {
     this.util.currentMatch = match;
   }
 
+  onShowTeamsClick(matchId: any){
+    for(let match of this.matches){
+      if(match.id===matchId)
+      {
+        this.service.getContestData(match.id).subscribe(
+          data => {
+            console.log(data);
+            let contests = data.data as contest[];
+            this.saveData(match,contests);
+            this.router.navigateByUrl("/showTeam");
+          },
+          error => {
+          console.log(error);
+          }
+        );
+      }
+    }
+  }
+
   onCreateTeamClick(matchId: any){
 
     for(let match of this.matches){

@@ -25,6 +25,17 @@ export interface match {
     totalMoney: number;
 }
 
+export interface Team {
+  captain: player;
+  id: number;
+  players: player[];
+  points: 0;
+  rank: number;
+  teamNumber: number;
+  userName: string;
+  viceCaptain: player;
+}
+
 export interface contest {
   category: string;
   createdOn: string;

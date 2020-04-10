@@ -1,0 +1,64 @@
+<div class="gameplay">
+    <div class="col-sm-12" style="text-align: center; background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); padding: 0%; padding-top: 1%; padding-left: 1%; margin-bottom: 2%; color: white; border-radius: 5px 5px 0px 0px;height: 10%;">
+        <img src="./assets/LOGO2.png" height="90%" width="25%" />
+      </div>
+
+    <div class="col-sm-12" style="padding:0%; text-align: center;color: white; ">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div style="padding-top: 0%; width: 100%;"></div>
+              <div style="font-weight: bolder; font-size: 12px;">STARTS IN </div>
+              <!-- <div style="font-size: large; font-weight: bolder; color: white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><countdown [config]="{ stopTime: currentMatch.matchTimeinSec, clock: ['d', 1000, 3, 'h', 100, 2, 'm', 60, 2, 's', 60, 2, 'u', 10, 1] }">$!d!:$!h!:$!m!:$!s!</countdown>
+              </div> -->
+              <div style="padding: 2%; margin-top: -2%; font-size: medium; font-weight: bolder; color: White; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><countdown [text]="text" units="Days | Hours | Minutes | Seconds"  end={{currentMatch.matchTimeinSec}} style="border-radius: 10px; background-color: aqua ; padding: 0%; margin: 0;"></countdown>
+              </div> 
+              <div style="margin-top: -8%;font-weight: bolder; font-size: 8px;padding: 0%;">DD : HH : MM : SS </div>  
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div *ngIf="teams" style="padding: 1%; height: 72vh; color: rgb(13, 72, 182)">
+        <div class="scroll">
+          <div class="col-sm-12 grid" *ngFor="let team of teams" style="border-radius: 10px;  margin-bottom: 10px">
+            <div class="col-sm-12" style="text-align: left; font-weight: bolder;">Team {{team.teamNumber}}</div>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="font-size: small; text-align: left; padding-left: 1%;">Captain (2x Pts)</div>
+                <div class="col-sm-4" *ngIf="currentMatch.team1 == team.captain.nationality || currentMatch.team1 == team.captain.club "><img [src]="currentMatch.team1pic" width="40%"/> </div>
+                <div class="col-sm-4" *ngIf="currentMatch.team2 == team.captain.nationality || currentMatch.team2 == team.captain.club "><img [src]="currentMatch.team2pic" width="40%"/></div>
+                <div class="col-sm-4" style="font-size: small;">{{team.captain.displayName}}</div>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="font-size: small; text-align: left; padding-left: 1%;">Vice-Captain (2x Pts)</div>
+                <div class="col-sm-4" *ngIf="currentMatch.team1 == team.viceCaptain.nationality || currentMatch.team1 == team.viceCaptain.club "><img [src]="currentMatch.team1pic" width="40%"/> </div>
+                <div class="col-sm-4" *ngIf="currentMatch.team2 == team.viceCaptain.nationality || currentMatch.team2 == team.viceCaptain.club "><img [src]="currentMatch.team2pic" width="40%"/></div>
+                <div class="col-sm-4" style="font-size: small;">{{team.viceCaptain.displayName}}</div>
+            </div>
+            <div class="col-sm-12" style="padding-bottom: 2%; text-align: center;">
+                <div class="col-sm-3 matchMenu" style="margin-left: 2%;margin-right: 6%;" >Preview</div>
+                <div class="col-sm-3 matchMenu" style="margin-right: 5%;margin-left: 5%;">Edit Team</div>
+                <div class="col-sm-3 matchMenu" style="margin-left: 6%;">Duplicate</div>
+              </div>
+          </div>
+          </div>
+    </div>
+
+    <div class="col-sm-12" style="width: 100%; text-align: center; padding: 0%;">
+        <div class="col-sm-4" style="text-align: center; padding: 0%;"></div>
+        <div class="col-sm-4 matchMenu" style=" text-align: center; padding: 0%;" >Create Team {{teams.length +1}}</div>
+        <div class="col-sm-4" style=" text-align: center; padding: 0%;"></div>
+    </div>
+
+
+    <div class="col-sm-12" style="position: sticky;font-weight: bold; text-align: center;top: 86%;text-align: left;height: 8%; background-image:linear-gradient(rgba(83, 83, 247, 0.986),rgb(7, 7, 112, 0.884)); padding: 0%; color: white; border-radius: 0px 0px 5px 5px;">
+        <div class="col-sm-3 bottomMenu" onclick="">
+          <div><mat-icon >home</mat-icon></div>Home
+        </div>
+        <div class="col-sm-3 bottomMenu" onclick="">
+          <div><mat-icon >account_box</mat-icon></div>Profile
+        </div>
+        <div class="col-sm-3 bottomMenu">
+          <div><mat-icon >assignment</mat-icon></div>Contests</div>
+        <div class="col-sm-3 bottomMenu">
+          <div><mat-icon>menu</mat-icon></div>Menu</div>
+      </div>
+</div>
