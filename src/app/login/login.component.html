@@ -1,0 +1,54 @@
+<!-- <app-header></app-header> -->
+<div class="gameplay">
+    <div class="col-sm-12" style="margin-bottom:8%">
+    </div>
+    <div class="col-sm-12" style="margin-bottom:10%; text-align: center;">
+        <img src="./assets/LOGO2.png" height="20%" width="80%" />
+    </div>  
+<div class="col-sm-12" style="margin:inherit">
+<div style="text-align: center;  margin-bottom: 5%">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <div style="padding: 3%;padding-left: 12%; padding-right: 12%;">
+        <input type="text" formControlName="username" class="form-control" placeholder="Enter your username here"/>
+    </div>
+    <div style="padding-left: 12%; padding-right: 12%;">
+        <input type="password" formControlName="password" class="form-control" placeholder="Enter your passowrd here"/>
+    </div>
+    <div style="padding-left: 12%; padding-right: 12%; padding-top: 2%; padding-bottom:5%; text-align: right; color: white;">
+        <button class="btn" style="background-color: transparent; font-size: smaller;">
+            Forget Password?
+        </button>
+    </div>
+
+    <div>
+        <button class="btn" style="background-color: transparent;">
+            <img src="./assets/loginbutton.png" width="40%"/>
+        </button>
+        <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+    </div>
+</form>
+</div>
+</div>
+
+    <div class="col-sm-12" style="text-align: center; width:100%;  padding-bottom: 7%; padding-top: 2%">
+        <div  class="col-sm-5" style="padding: 0%;">
+            <button class="btn" style="background-color: transparent;">
+                <img src="./assets/google-plus.png" width="100%"/>
+            </button>
+        </div>
+        <div class="col-sm-2" style="padding: 2%;">
+            <h4 style="color: white;">OR</h4>
+        </div>
+        <div class="col-sm-5" style="padding: 0%;">
+            <button class="btn" style="background-color: transparent;">
+                <img src="./assets/facebook.png" width="100%"/>
+            </button>
+        </div>        
+    </div>
+
+    <div style="padding-left: 10%; padding-right: 10%; padding-bottom:5%;  color: white;">
+        <button class="btn" style="background-color: transparent; font-size: larger; font-weight: bolder;">
+            New User? Register Here
+        </button>
+    </div>
+</div>
