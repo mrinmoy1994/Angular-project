@@ -36,17 +36,16 @@ export class LoginComponent implements OnInit {
     this.service.getLoginToken({
       cred:btoa(data.name+":"+data.password)})
       .subscribe(
-        data => {
-          
-          console.log(data)
-          console.log(btoa(data.name+":"+data.password))
-          this.statusCode = data.status;
+        res => {
+          // console.log(data)
+          // console.log(btoa(data.name+":"+data.password))
+          this.statusCode = res.status;
           if(this.statusCode === 200 || this.statusCode === 201)
             {
-              localStorage.setItem("token",data.props.token);
+              localStorage.setItem("token",res.props.token);
               localStorage.setItem("userName",data.name);
               console.log(this.statusCode);
-              console.log(localStorage.getItem("token"));
+              console.log(localStorage.getItem("userName"));
               this.router.navigateByUrl("/home");
             }
           //this.router.navigate([this.returnUrl]);

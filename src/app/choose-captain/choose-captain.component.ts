@@ -119,7 +119,7 @@ export class ChooseCaptainComponent implements OnInit {
       captainId : this.captain.id, 
       viceCaptainId : this.vicecaptain.id
    };
-
+	//console.log(localStorage.getItem("userName"));
    this.util.team1PlayerCount = 0;
     this.util.team2PlayerCount = 0;
     this.util.currentTeam = null;
