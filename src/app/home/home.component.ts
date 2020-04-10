@@ -117,6 +117,7 @@ export class HomeComponent implements OnInit {
 
   onCreateTeamClick(matchId: any){
 
+    this.util.editTeam = false;
     for(let match of this.matches){
       if(match.id===matchId)
       {

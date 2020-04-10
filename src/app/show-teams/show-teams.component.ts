@@ -18,9 +18,9 @@ export class ShowTeamsComponent implements OnInit {
     Seconds: ""
   };
   
-  currentMatch: match;
-  teams : any[];
-  constructor( private router: Router, private util : UtilityService, private service : ShowTeamsService ) { 
+  currentMatch: match = null;
+  teams : any[] = [];
+  constructor( private router: Router, private util : UtilityService, private service : ShowTeamsService) { 
   }
   ngOnInit(): void {
 
@@ -28,7 +28,6 @@ export class ShowTeamsComponent implements OnInit {
       this.router.navigateByUrl("/home");
     }
     this.currentMatch = this.util.currentMatch;
-    console.log(this.currentMatch);
     this.service.getTeamsData(this.currentMatch.id).subscribe(
       data => {
         this.teams = data.data as Team[];
@@ -36,8 +35,52 @@ export class ShowTeamsComponent implements OnInit {
       },
       error => {
         console.log(error);
-      });
-    
+      }); 
+  }
+
+  saveTeamData(teamId){
+    let team1Count : number =0;
+    let team2Count : number =0;
+    let credit : number =0;
+    for(let team of this.teams){
+      if(team.id == teamId){          
+        for(let player of team.players){
+          if(player.nationality == this.currentMatch.team1 || player.club == this.currentMatch.team1)
+          {
+            team1Count++;
+          }
+          else
+            team2Count++;
+          
+          credit += player.price;
+        }
+
+        this.util.team1PlayerCount = team1Count;
+        this.util.team2PlayerCount = team2Count;
+        this.util.currentTeam = team.players;
+        this.util.credit = credit;
+        this.util.captain = team.captain;
+        this.util.viceCaptain = team.viceCaptain;
+        this.util.editableTeamId = team.id;
+      }
+    }
+  }
+
+  createNewTeam(){
+    this.util.editTeam = true;
+    this.router.navigateByUrl("/createTeam");
+  }
+
+  copyExistingTeam(teamId){
+    this.util.editTeam = false; 
+    this.saveTeamData(teamId);
+    this.router.navigateByUrl("/createTeam");   
+  }
+
+  editExistingTeam(teamId){
+    this.util.editTeam = true;
+    this.saveTeamData(teamId);
+    this.router.navigateByUrl("/createTeam");
   }
 
 }

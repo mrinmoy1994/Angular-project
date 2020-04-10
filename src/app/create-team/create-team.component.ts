@@ -16,7 +16,7 @@ export class CreateTeamComponent implements OnInit {
     Minutes: "",
     Seconds: ""
   };
-  
+  tempTeam : player[];
   currentMatch: match;
   players : player[];
   instruction : string;
@@ -38,40 +38,46 @@ export class CreateTeamComponent implements OnInit {
     }
     this.currentMatch = this.util.currentMatch;
 
-    console.log(this.currentMatch);
-
     if(this.util.credit && this.util.credit != 0)
       this.credit = this.util.credit;
-    if(this.util.currentTeam && this.util.credit !=null)
-      this.team = this.util.currentTeam;
+    if(this.util.currentTeam && this.util.currentTeam !=null)
+      this.tempTeam = this.util.currentTeam;
     if(this.util.team1PlayerCount && this.util.team1PlayerCount != 0)
       this.team1Player = this.util.team1PlayerCount;
     if(this.util.team2PlayerCount && this.util.team2PlayerCount != 0)
       this.team2Player = this.util.team2PlayerCount;
-    if(this.util.availPlayers && this.util.availPlayers != null)
-      this.players = this.util.availPlayers;
-    
-    for(let player of this.team){
-      if(player.playerRole == 'WICKETKEEPER')
-        this.wk++;
-      if(player.playerRole == 'BOWLER')
-        this.ball++;
-      if(player.playerRole == 'BATSMAN')
-        this.bat++;
-      if(player.playerRole == 'ALLROUNDER')
-        this.ar++;
-    }
     
     this.service.getPlayersData(this.currentMatch.id).subscribe(
       data => {
-        if(!this.players)    
-          this.players = data.data as player[];
+        this.players = data.data as player[];
+          for(let p of this.players){
+            if(this.team){
+              for(let p1 of this.tempTeam){
+                if(p.name == p1.name){
+                  p.selected = true;
+                  this.team.push(p);
+                }
+              }
+            }
+          }
+
+          for(let player of this.team){
+            console.log(player);
+            if(player.playerRole == 'WICKETKEEPER')
+              this.wk++;
+            if(player.playerRole == 'BOWLER')
+              this.ball++;
+            if(player.playerRole == 'BATSMAN')
+              this.bat++;
+            if(player.playerRole == 'ALLROUNDER')
+              this.ar++;
+          }
+
         this.getWicketKeepers();
       },
       error => {
         console.log(error);
       });
-
       
   }
 
@@ -81,6 +87,7 @@ export class CreateTeamComponent implements OnInit {
     for(let player of this.players){
       if(player.playerRole == 'WICKETKEEPER')
         this.playerList.push(player);
+      console.log(player.selected);
     }
   }
 
@@ -197,7 +204,7 @@ export class CreateTeamComponent implements OnInit {
           if((player.nationality == this.currentMatch.team1 && this.team1Player<7) ||(player.nationality == this.currentMatch.team2 && this.team2Player<7)){
             if(player.playerRole == 'WICKETKEEPER' )
             {
-              if(this.wk == 0){
+              if(this.wk <= 0){
                 player.selected = true;
                 this.team.push(player);
                 this.wk ++;
@@ -260,14 +267,18 @@ export class CreateTeamComponent implements OnInit {
   }
 
   removePlayers(id: number | player){
+    console.log(id);
     for(let player of this.players){
       if(player.id == id){
         const index: number = this.team.indexOf(player);
         if (index !== -1) {
+          console.log(id);
           player.selected = false;
           this.credit -= player.price;
+          console.log(this.wk);
           if(player.playerRole == 'WICKETKEEPER')
             this.wk--;
+          console.log(this.wk);
           if(player.playerRole == 'ALLROUNDER')
             this.ar--;
           if(player.playerRole == 'BATSMAN')
@@ -280,7 +291,7 @@ export class CreateTeamComponent implements OnInit {
           else{
             if(player.nationality == this.currentMatch.team1) this.team1Player --; else this.team2Player--;
           }
-          this.team.splice(index, 1);
+          console.log(this.team.splice(index, 1));
         }
       }
     }

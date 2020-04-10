@@ -23,14 +23,30 @@ export class ChooseCaptainComponent implements OnInit {
   team1Player  : number = 0;
   team2Player : number = 0;
   credit : number = 0;
-  captain : any;
+  captain : player =
+  {
+    age: 0,
+    club: null,
+    displayName: null,
+    externalId: 0,
+    height: 0,
+    id: 0,
+    name: null,
+    nationality: null,
+    playerRole: null,
+    playerStatus: null,
+    price: 0,
+    point: 0,
+    selected : false
+  } ;
+
   text:any = {
     Days: "",
     Hours: "",
     Minutes: "",
     Seconds: ""
   }; 
-  vicecaptain: any;
+  vicecaptain: player;
   constructor( private router: Router, private util : UtilityService, private service : ChooseCaptainService ) { 
   }
 
@@ -40,14 +56,33 @@ export class ChooseCaptainComponent implements OnInit {
     }
     
     this.currentMatch = this.util.currentMatch;
-    if(this.util.credit)
+
+    if(this.util.credit && this.util.credit != 0)
       this.credit = this.util.credit;
-    if(this.util.currentTeam)
+    if(this.util.currentTeam && this.util.currentTeam !=null)
       this.team = this.util.currentTeam;
-    if(this.util.team1PlayerCount>0)
+    if(this.util.team1PlayerCount && this.util.team1PlayerCount != 0)
       this.team1Player = this.util.team1PlayerCount;
-     if(this.util.team2PlayerCount>0)
+    if(this.util.team2PlayerCount && this.util.team2PlayerCount != 0)
       this.team2Player = this.util.team2PlayerCount;
+
+    if(this.util.captain && this.util.captain != null)
+     {
+      for(let player of this.team){
+        if(player.name == this.util.captain. name)
+          this.captain =player;
+        } 
+     }
+      
+        
+    if(this.util.viceCaptain && this.util.viceCaptain != null)
+    {
+      for(let player of this.team){
+        if(player.name == this.util.viceCaptain. name)
+          this.vicecaptain =player;
+        } 
+     }
+    
     for(let player of this.team){
       if(player.playerRole == 'WICKETKEEPER')
         this.wk++;
@@ -90,16 +125,26 @@ export class ChooseCaptainComponent implements OnInit {
     this.util.currentTeam = null;
     this.util.credit = 0;
     this.util.availPlayers = null;
+    let id = this.util.editableTeamId;
+    this.util.editableTeamId = 0;
 
-   console.log(data);
-   this.service.createTeam(data).subscribe(
-    res => {
-      console.log(res);
-    },
-    error => {
-      console.log(error)
-    });
-   this.router.navigateByUrl("/home");
+    if(this.util.editTeam){
+      console.log(this.util.editTeam);
+      this.util.editTeam = false;
+      this.service.updateTeam(data,id).subscribe(
+        error => {
+          console.log(error)
+        });
+    }
+    else{
+      this.service.createTeam(data).subscribe(
+        error => {
+          console.log(error)
+        });
+    
+    }
+   
+   this.router.navigateByUrl("/showTeam");
   }
 
   setCaptain(player){

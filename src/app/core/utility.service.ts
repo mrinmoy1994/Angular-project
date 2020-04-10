@@ -16,7 +16,38 @@ export class UtilityService {
     private _team1PlayerCount : number;
     private _team2PlayerCount : number;
     private _availPlayers : player[];
+    private _editTeam : boolean = false;
+    private _captain : any;
+    private _viceCaptain : any;
+    private _editableTeamId : number;
 
+    public get editableTeamId() {
+      return this._editableTeamId;
+    }
+    public set editableTeamId(id) {
+      this._editableTeamId = id;
+    }  
+
+    public get captain() {
+      return this._captain;
+    }
+    public set captain(captain) {
+      this._captain = captain;
+    }
+
+    public get viceCaptain() {
+      return this._viceCaptain;
+    }
+    public set viceCaptain(viceCaptain) {
+      this._viceCaptain = viceCaptain;
+    }
+
+    public get editTeam() {
+      return this._editTeam;
+    }
+    public set editTeam(choice) {
+      this._editTeam = choice;
+    }
 
     public get availPlayers() {
       return this._availPlayers;

@@ -35,8 +35,8 @@
             </div>
             <div class="col-sm-12" style="padding-bottom: 2%; text-align: center;">
                 <div class="col-sm-3 matchMenu" style="margin-left: 2%;margin-right: 6%;" >Preview</div>
-                <div class="col-sm-3 matchMenu" style="margin-right: 5%;margin-left: 5%;">Edit Team</div>
-                <div class="col-sm-3 matchMenu" style="margin-left: 6%;">Duplicate</div>
+                <div class="col-sm-3 matchMenu" style="margin-right: 5%;margin-left: 5%;" (click)="editExistingTeam(team.id)">Edit Team</div>
+                <div class="col-sm-3 matchMenu" style="margin-left: 6%;" (click)="editExistingTeam(team.id)">Duplicate</div>
               </div>
           </div>
           </div>
@@ -44,7 +44,7 @@
 
     <div class="col-sm-12" style="width: 100%; text-align: center; padding: 0%;">
         <div class="col-sm-4" style="text-align: center; padding: 0%;"></div>
-        <div class="col-sm-4 matchMenu" style=" text-align: center; padding: 0%;" >Create Team {{teams.length +1}}</div>
+        <div class="col-sm-4 matchMenu" style=" text-align: center; padding: 0%;" (click)="createNewTeam()" >Create Team {{teams.length +1}}</div>
         <div class="col-sm-4" style=" text-align: center; padding: 0%;"></div>
     </div>
 

@@ -17,4 +17,14 @@ export class ChooseCaptainService {
       return this.http.post('https://dev.captainxcc.com/capx/rest/user/team/create/do',data, { headers: headers});
     }
   }
+
+  updateTeam(data: any, id):Observable<any> {
+    let token ='Bearer ' + localStorage.getItem("token");
+    if(token){
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+      headers = headers.append('Authorization', token);
+      return this.http.post('https://dev.captainxcc.com/capx/rest/user/team/'+id+'/edit/do',data, { headers: headers});
+    }
+  }
 }

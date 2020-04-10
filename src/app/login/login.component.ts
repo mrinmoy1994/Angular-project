@@ -24,14 +24,14 @@ export class LoginComponent implements OnInit {
 
   }
   onSubmit(form) {
-    // const data = {
-    //   name: form.controls.username.value,
-    //   password: form.controls.password.value
-    // };
     const data = {
-      name: 'mrinmoy@captainxcc.com',
-      password: 'Ronaldo@123'
+      name: form.controls.username.value,
+      password: form.controls.password.value
     };
+    // const data = {
+    //   name: 'mrinmoy@captainxcc.com',
+    //   password: 'Ronaldo@123'
+    // };
     console.log(data);
     this.service.getLoginToken({
       cred:btoa(data.name+":"+data.password)})
