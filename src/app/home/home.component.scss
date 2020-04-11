@@ -60,7 +60,7 @@ p{
 }
 .scroll{
     overflow-y: scroll; 
-    padding : 1rem;
+    padding : 0.5rem;
     scrollbar-width: none; 
     height: 100%;
     -ms-overflow-style: none;
@@ -89,3 +89,7 @@ p{
     background-color:  rgb(11, 55, 136);
   }
 
+.country_image {
+    width: 5rem;
+    height: 5rem;
+}
