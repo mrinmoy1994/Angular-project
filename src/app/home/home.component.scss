@@ -82,8 +82,9 @@ p{
     border-width: 1px; 
     background-color: rgb(13, 72, 182);
     cursor: pointer;
-    height: 5rem;
-    width: 8rem;
+    height: 2rem;
+    width: 10rem;
+    font-size: smaller;
 }
 
 .matchMenu:hover {
@@ -91,6 +92,6 @@ p{
   }
 
 .country_image {
-    width: 5rem;
-    height: 5rem;
+    width: 10rem;
+    height: 10rem;
 }
