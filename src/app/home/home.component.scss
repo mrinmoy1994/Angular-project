@@ -8,12 +8,14 @@
     text-align: center;
 }
 .gameplay{
+    display: flex;
+    flex-direction: column;
     border-color: white; 
     border-width: 2px; 
     border-style: solid; 
     border-radius: 5px; 
     background-color: rgb(18, 39, 109); 
-    height: 40vmax; 
+    // height: 40vmax; 
     padding: 0%;
     margin: 0%; 
     text-align: center;
@@ -60,7 +62,7 @@ p{
     overflow-y: scroll; 
     padding : 1rem;
     scrollbar-width: none; 
-    height: 80%;
+    height: 100%;
     -ms-overflow-style: none;
 }
 
