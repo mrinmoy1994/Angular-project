@@ -16,6 +16,7 @@ import { CountdownModule } from "ng2-date-countdown";
 import { ChooseCaptainComponent } from './choose-captain/choose-captain.component';
 import { ShowTeamsComponent } from './show-teams/show-teams.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   imports:      [ 
@@ -28,7 +29,7 @@ import { FooterComponent } from './common/footer/footer.component';
     BrowserAnimationsModule,
     CountdownModule
   ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent ],
+  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

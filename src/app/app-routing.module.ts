@@ -6,7 +6,8 @@ import { HelloComponent } from './hello.component';
 import { LoginComponent } from './login/login.component';
 import { CreateTeamComponent } from './create-team/create-team.component';
 import { ChooseCaptainComponent } from './choose-captain/choose-captain.component';
-import { ShowTeamsComponent} from './show-teams/show-teams.component'
+import { ShowTeamsComponent} from './show-teams/show-teams.component';
+import { PreviewComponent } from './preview/preview.component'
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component : LoginComponent},
   { path: 'createTeam', component : CreateTeamComponent},
   { path: 'chooseCaptain', component : ChooseCaptainComponent},
-  { path: 'showTeam', component : ShowTeamsComponent}
+  { path: 'showTeam', component : ShowTeamsComponent},
+  { path: 'preview', component : PreviewComponent}
 ];
 
 @NgModule({
