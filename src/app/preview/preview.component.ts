@@ -25,6 +25,7 @@ export class PreviewComponent implements OnInit {
     this.team = this.util.currentTeam;
 
     console.log("in init");
+    
     for(let player of this.team)
     {
       console.log(player)

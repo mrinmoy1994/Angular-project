@@ -34,7 +34,7 @@
                 <div class="col-sm-4" style="font-size: small;">{{team.viceCaptain.displayName}}</div>
             </div>
             <div class="col-sm-12" style="padding-bottom: 2%; text-align: center;">
-                <div class="col-sm-3 matchMenu" style="margin-left: 2%;margin-right: 6%;" >Preview</div>
+                <div class="col-sm-3 matchMenu" style="margin-left: 2%;margin-right: 6%;" (click)="preview(team.id)">Preview</div>
                 <div class="col-sm-3 matchMenu" style="margin-right: 5%;margin-left: 5%;" (click)="editExistingTeam(team.id)">Edit Team</div>
                 <div class="col-sm-3 matchMenu" style="margin-left: 6%;" (click)="copyExistingTeam(team.id)">Duplicate</div>
               </div>

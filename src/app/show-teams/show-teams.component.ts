@@ -98,4 +98,14 @@ export class ShowTeamsComponent implements OnInit {
     this.router.navigateByUrl("/createTeam");
   }
 
+  preview(teamId){
+    for(let team of this.teams){
+      if(team.id == teamId){
+        this.util.currentTeam = team.players;
+        console.log(this.util.currentTeam);
+        this.router.navigateByUrl("/preview");
+      }
+    }
+  }
+
 }
