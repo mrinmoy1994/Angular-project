@@ -1,0 +1,86 @@
+.text_align_left {
+    text-align: left;
+}
+.text_align_right {
+    text-align: right;
+}
+.text_align_center {
+    text-align: center;
+}
+.gameplay{
+    border-color: white; 
+    border-width: 2px; 
+    border-style: solid; 
+    border-radius: 5px; 
+    background-color: rgb(18, 39, 109); 
+    height: 40vmax; 
+    padding: 0%;
+    margin: 0%; 
+    text-align: center;
+    .header_icon {
+        text-align: center; 
+        background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); 
+        padding: 0.5rem;
+        color: white; 
+        border-radius: 5px 5px 0px 0px;
+        img {
+            width: 8rem;        
+        }
+    }   
+    .team {
+        padding-top: 1rem;
+        font-weight: bolder; 
+        font-size: 12px; 
+        color: blue;
+    }
+    .starts_in {
+        font-weight: bolder; 
+        font-size: 12px; 
+        padding: 0%;
+    }
+}
+
+p{
+    padding: 0%;
+    margin: 0%;
+}
+.league {
+    padding: 1rem 0rem; 
+    border-radius: 10px;
+    margin-bottom: 1%; 
+    background-image: linear-gradient(rgb(15, 138, 238),rgb(232, 237, 240));
+    .font_color {
+        // color: rgb(27, 27, 92);
+        font-weight: bold;
+        color: rgb(13, 13, 148);
+        // font-size: small;
+    }
+}
+.scroll{
+    overflow-y: scroll; 
+    padding : 1rem;
+    scrollbar-width: none; 
+    height: 85%;
+    -ms-overflow-style: none;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.matchMenu{
+    color:white;
+    border-style: ridge; 
+    border-radius: 10px; 
+    border-color: white;
+    border-width: 1px; 
+    background-color: rgb(13, 72, 182);
+    cursor: pointer;
+    min-height: 5rem;
+    padding: 1.5rem 0.5rem;
+}
+
+.matchMenu:hover {
+    background-color:  rgb(11, 55, 136);
+  }
+

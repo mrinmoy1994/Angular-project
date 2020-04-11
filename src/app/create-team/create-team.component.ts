@@ -313,4 +313,9 @@ export class CreateTeamComponent implements OnInit {
     this.router.navigateByUrl("/chooseCaptain");
   }
 
+  preview(){
+    this.util.currentTeam = this.team;
+    this.router.navigateByUrl("/preview");
+  }
+
 }
