@@ -47,7 +47,7 @@ p{
     margin: 0%;
 }
 .league {
-    padding: 1rem 0rem; 
+    // padding: 1rem 0rem; etate scroll kind of asche
     border-radius: 10px;
     margin-bottom: 1%; 
     background-image: linear-gradient(rgb(15, 138, 238),rgb(232, 237, 240));
@@ -83,14 +83,19 @@ p{
     background-color: rgb(13, 72, 182);
     cursor: pointer;
     height: 2rem;
-    width: 10rem;
+    width: 12rem;
+    padding: 0.5rem;
     font-size: smaller;
 }
 
 .matchMenu:hover {
     background-color:  rgb(11, 55, 136);
   }
-
+.country_image_container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
 .country_image {
     width: 10rem;
     height: 10rem;
