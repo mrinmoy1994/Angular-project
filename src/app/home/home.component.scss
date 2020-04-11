@@ -69,6 +69,9 @@ p{
 }
 
 .matchMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color:white;
     border-style: ridge; 
     border-radius: 10px; 
@@ -76,8 +79,8 @@ p{
     border-width: 1px; 
     background-color: rgb(13, 72, 182);
     cursor: pointer;
-    min-height: 5rem;
-    padding: 1.5rem 0.5rem;
+    height: 5rem;
+    // padding: 1.5rem 0.5rem;
 }
 
 .matchMenu:hover {
