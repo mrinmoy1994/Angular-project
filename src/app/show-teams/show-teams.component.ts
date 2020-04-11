@@ -21,15 +21,30 @@ export class ShowTeamsComponent implements OnInit {
   currentMatch: match = null;
   teams : any[] = [];
   constructor( private router: Router, private util : UtilityService, private service : ShowTeamsService) { 
-  }
-  ngOnInit(): void {
-
+    console.log('Called Constructor');
     if(!this.util.currentMatch){
       this.router.navigateByUrl("/home");
     }
     this.currentMatch = this.util.currentMatch;
     this.service.getTeamsData(this.currentMatch.id).subscribe(
       data => {
+        console.log('coming here');
+        this.teams = data.data as Team[];
+        console.log(this.teams);
+      },
+      error => {
+        console.log(error);
+      }); 
+  }
+  ngOnInit(): void {
+    console.log('Called ngOnInit');
+    if(!this.util.currentMatch){
+      this.router.navigateByUrl("/home");
+    }
+    this.currentMatch = this.util.currentMatch;
+    this.service.getTeamsData(this.currentMatch.id).subscribe(
+      data => {
+        console.log('coming here');
         this.teams = data.data as Team[];
         console.log(this.teams);
       },
@@ -67,7 +82,7 @@ export class ShowTeamsComponent implements OnInit {
   }
 
   createNewTeam(){
-    this.util.editTeam = true;
+    this.util.editTeam = false;
     this.router.navigateByUrl("/createTeam");
   }
 

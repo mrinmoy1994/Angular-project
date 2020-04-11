@@ -126,6 +126,7 @@ export class HomeComponent implements OnInit {
             console.log(data);
             let contests = data.data as contest[];
             this.saveData(match,contests);
+            this.util.editTeam = false;
             this.router.navigateByUrl("/createTeam");
           },
           error => {

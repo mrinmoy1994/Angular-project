@@ -51,7 +51,7 @@ export class CreateTeamComponent implements OnInit {
       data => {
         this.players = data.data as player[];
           for(let p of this.players){
-            if(this.team){
+            if(this.tempTeam){
               for(let p1 of this.tempTeam){
                 if(p.name == p1.name){
                   p.selected = true;
@@ -61,16 +61,19 @@ export class CreateTeamComponent implements OnInit {
             }
           }
 
-          for(let player of this.team){
-            console.log(player);
-            if(player.playerRole == 'WICKETKEEPER')
-              this.wk++;
-            if(player.playerRole == 'BOWLER')
-              this.ball++;
-            if(player.playerRole == 'BATSMAN')
-              this.bat++;
-            if(player.playerRole == 'ALLROUNDER')
-              this.ar++;
+          if(this.team)
+          {
+            for(let player of this.team){
+              console.log(player);
+              if(player.playerRole == 'WICKETKEEPER')
+                this.wk++;
+              if(player.playerRole == 'BOWLER')
+                this.ball++;
+              if(player.playerRole == 'BATSMAN')
+                this.bat++;
+              if(player.playerRole == 'ALLROUNDER')
+                this.ar++;
+            }
           }
 
         this.getWicketKeepers();

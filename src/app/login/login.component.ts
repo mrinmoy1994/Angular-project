@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       cred:btoa(data.name+":"+data.password)})
       .subscribe(
         res => {
-          // console.log(data)
+           console.log(res);
           // console.log(btoa(data.name+":"+data.password))
           this.statusCode = res.status;
           if(this.statusCode === 200 || this.statusCode === 201)

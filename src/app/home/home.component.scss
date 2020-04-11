@@ -46,7 +46,8 @@ p{
 }
 .league {
     padding: 1rem 0rem; 
-    border-radius: 10px; 
+    border-radius: 10px;
+    margin-bottom: 1%; 
     background-image: linear-gradient(rgb(15, 138, 238),rgb(232, 237, 240));
     .font_color {
         // color: rgb(27, 27, 92);
@@ -59,7 +60,7 @@ p{
     overflow-y: scroll; 
     padding : 1rem;
     scrollbar-width: none; 
-    // height: 90%;
+    height: 85%;
     -ms-overflow-style: none;
 }
 

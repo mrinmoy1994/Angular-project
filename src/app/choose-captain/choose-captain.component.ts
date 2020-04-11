@@ -111,23 +111,27 @@ export class ChooseCaptainComponent implements OnInit {
       ids.push(player.id);
     }
 
+    let id = this.util.editableTeamId;
+    console.log(id);
     let data : any;
     data = { 
+      id : id,
       matchId : this.currentMatch.id, 
       userName : localStorage.getItem("userName"), 
       playerIds : ids, 
       captainId : this.captain.id, 
       viceCaptainId : this.vicecaptain.id
    };
+
 	//console.log(localStorage.getItem("userName"));
    this.util.team1PlayerCount = 0;
     this.util.team2PlayerCount = 0;
     this.util.currentTeam = null;
     this.util.credit = 0;
     this.util.availPlayers = null;
-    let id = this.util.editableTeamId;
     this.util.editableTeamId = 0;
 
+    console.log(this.util.editTeam);
     if(this.util.editTeam){
       console.log(this.util.editTeam);
       this.util.editTeam = false;

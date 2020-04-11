@@ -24,7 +24,7 @@ export class ChooseCaptainService {
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
       headers = headers.append('Authorization', token);
-      return this.http.post('https://dev.captainxcc.com/capx/rest/user/team/'+id+'/edit/do',data, { headers: headers});
+      return this.http.post('https://dev.captainxcc.com/capx/rest/user/team/edit/do',data, { headers: headers});
     }
   }
 }
