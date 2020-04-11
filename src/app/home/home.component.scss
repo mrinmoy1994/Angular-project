@@ -60,7 +60,7 @@ p{
     overflow-y: scroll; 
     padding : 1rem;
     scrollbar-width: none; 
-    height: 85%;
+    height: 80%;
     -ms-overflow-style: none;
 }
 
@@ -80,7 +80,7 @@ p{
     background-color: rgb(13, 72, 182);
     cursor: pointer;
     height: 5rem;
-    // padding: 1.5rem 0.5rem;
+    width: 8rem;
 }
 
 .matchMenu:hover {

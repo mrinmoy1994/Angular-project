@@ -14,5 +14,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 
         padding: 0%;
     }
 }
+
+.display_mobile {
+    display: flex;
+    flex-direction: row;
+}
+.display_content {
+    display: flex;
+    justify-content: center;
+}
 }
 
