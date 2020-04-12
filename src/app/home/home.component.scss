@@ -70,27 +70,6 @@ p{
 .scroll::-webkit-scrollbar {
     display: none;
 }
-
-.matchMenu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    border-style: ridge; 
-    border-radius: 10px; 
-    border-color: white;
-    border-width: 1px; 
-    background-color: rgb(13, 72, 182);
-    cursor: pointer;
-    height: 2rem;
-    width: 12rem;
-    padding: 0.5rem;
-    font-size: smaller;
-}
-
-.matchMenu:hover {
-    background-color:  rgb(11, 55, 136);
-  }
 .country_image_container {
     padding: 0;
     display: flex;

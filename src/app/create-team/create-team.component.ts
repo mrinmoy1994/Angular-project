@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-team',
   templateUrl: './create-team.component.html',
-  styleUrls: ['./create-team.component.scss']
+  styleUrls: ['./create-team.component.scss','./../home/home.component.scss']
 })
 export class CreateTeamComponent implements OnInit {
   text:any = {

@@ -1,14 +1,26 @@
-.gameplay{
-    border-color: white; 
-    border-width: 2px; 
-    border-style: solid; 
-    border-radius: 5px; 
-    background-color: rgb(18, 39, 109); 
-    height: 40vmax; 
-    padding: 0%;
-    margin: 0%; 
-    text-align: center;
-    
+.selected_player {
+    font-weight: bolder;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.selected_no {
+    margin-left: 2rem;
+    font-size: smaller;
+    background-color: rgb(21, 153, 230);
+    color: white;
+    border-radius: 50%;
+    margin-top: -1rem;
+    padding: 1rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bottomMenu{
@@ -22,40 +34,61 @@
   }
 
   .matchMenu{
-    color:white;
-    border-style: ridge; 
-    border-radius: 10px; 
-    border-color: white;
-    border-width: 1px; 
-    background-color: rgb(13, 72, 182);
-    cursor: pointer;
+   width: 100%;
+   color: wheat;
+   border-radius: 10px;
+   border: 1px solid white;
+
 }
 
 .matchMenu:hover {
     background-color:  rgb(11, 55, 136);
   }
 
-  .scroll{
-    overflow-y: scroll; padding : 1%; scrollbar-width: none; height: 30%;
-}
-
 .scroll{
     -ms-overflow-style: none;
+    height: 16vh!important;
 }
 
 .scroll::-webkit-scrollbar {
     display: none;
 }
-
-.playerMenu{
-    cursor: pointer; height:8%; color: rgb(11, 29, 131); width:11%; text-align: center; padding: 0%;border-radius: 50%; border: 2px ; background-image: linear-gradient(rgb(232, 237, 240),rgb(83, 169, 240));
+.creadits_players_container {
+    padding: 0.5rem;
+    background-image: linear-gradient(rgb(232, 237, 240),rgb(15, 138, 238));
+    border-radius: 20px;margin: 0.5rem;
 }
-
-.playerMenu:hover {
-    background-image: linear-gradient(rgb(8, 138, 214),rgb(7, 70, 122));
-    color: white;
+.creadits_players {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
-
+.team_player {
+    display: flex;align-items: center;
+    .team_player_sub {
+        border-radius: 50%; 
+        border: 2px ;
+        border-style: solid; 
+        border-color: rgb(11, 29, 131); 
+        color: rgb(11, 29, 131);
+        width: 3rem;
+        height: 3rem;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+.team_player_div {
+    margin: 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .team_player_div_sub {
+        border-right: 1px solid rgb(11, 29, 131);
+        height: 2rem;
+    }
+}
 .grid{
     padding: 0%; padding-top:1%;margin-bottom: 2px; background-image: linear-gradient(rgb(162, 200, 231),rgb(240, 242, 243));
 }

@@ -17,6 +17,7 @@ import { ChooseCaptainComponent } from './choose-captain/choose-captain.componen
 import { ShowTeamsComponent } from './show-teams/show-teams.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { PreviewComponent } from './preview/preview.component';
+import { ButtonComponent } from './common/button/button.component';
 
 @NgModule({
   imports:      [ 
@@ -29,7 +30,7 @@ import { PreviewComponent } from './preview/preview.component';
     BrowserAnimationsModule,
     CountdownModule
   ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent ],
+  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent, ButtonComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
