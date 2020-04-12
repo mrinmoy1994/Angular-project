@@ -82,14 +82,28 @@ export class ShowTeamsComponent implements OnInit {
   }
 
   createNewTeam(){
-    this.util.editTeam = false;
-    this.router.navigateByUrl("/createTeam");
+        if(this.teams.length<5)
+        {
+          this.util.editTeam = false;
+          this.router.navigateByUrl("/createTeam");
+        }
+        else{
+          window.alert("You can not create more than 5 teams for a match.");
+          return;
+        }
   }
 
   copyExistingTeam(teamId){
-    this.util.editTeam = false; 
-    this.saveTeamData(teamId);
-    this.router.navigateByUrl("/createTeam");   
+    if(this.teams.length<5)
+    {
+      this.util.editTeam = false; 
+      this.saveTeamData(teamId);
+      this.router.navigateByUrl("/createTeam");   
+    }
+    else{
+      window.alert("You can not create more than 5 teams for a match.");
+      return;
+    }
   }
 
   editExistingTeam(teamId){

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { saveAs } from 'file-saver';
 import { Router } from '@angular/router';
-import { UrlConfiguration, match, contest } from './../core/url-configuration';
+import { UrlConfiguration, match, contest, Team } from './../core/url-configuration';
 import { UtilityService } from './../core/utility.service';
+import {ShowTeamsService} from './../show-teams/show-teams.service'
 import {
   ɵBROWSER_SANITIZATION_PROVIDERS,
   DomSanitizer,
@@ -30,7 +31,8 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private service: HomeService,
     private sanitizer: DomSanitizer,
-    private util: UtilityService
+    private util: UtilityService,
+    private teamService :ShowTeamsService
   ) {}
 
   ngOnInit() {
@@ -131,18 +133,34 @@ export class HomeComponent implements OnInit {
     this.util.editTeam = false;
     for (const match of this.matches) {
       if (match.id === matchId) {
-        this.service.getContestData(match.id).subscribe(
+        this.teamService.getTeamsData(match.id).subscribe(
           (data) => {
-            console.log(data);
-            const contests = data.data as contest[];
-            this.saveData(match, contests);
-            this.util.editTeam = false;
-            this.router.navigateByUrl('/createTeam');
+            let teams = data.data as Team[];
+            if(teams.length<5)
+            {
+              this.service.getContestData(match.id).subscribe(
+                (data) => {
+                  console.log(data);
+                  const contests = data.data as contest[];
+                  this.saveData(match, contests);
+                  this.util.editTeam = false;
+                  this.router.navigateByUrl('/createTeam');
+                },
+                (error) => {
+                  console.log(error);
+                }
+              );
+            }
+            else{
+              window.alert("You can not create more than 5 teams for a match.");
+              return;
+            }
           },
           (error) => {
             console.log(error);
           }
         );
+        
       }
     }
   }

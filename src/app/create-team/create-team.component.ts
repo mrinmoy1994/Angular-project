@@ -85,7 +85,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   getWicketKeepers(){
-    this.instruction = 'Pick One Wicket Keeper';
+    this.instruction = 'Pick 1-2 Wicket Keeper';
     this.playerList = [];
     for(let player of this.players){
       if(player.playerRole == 'WICKETKEEPER')
@@ -113,7 +113,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   getAllrounders(){
-    this.instruction = 'Pick 1 or 2 AllRounder';
+    this.instruction = 'Pick 2-4 AllRounder';
     this.playerList = [];
     for(let player of this.players){
       if(player.playerRole == 'ALLROUNDER')
@@ -144,7 +144,7 @@ export class CreateTeamComponent implements OnInit {
           if((player.club == this.currentMatch.team1 && this.team1Player<7) ||(player.club == this.currentMatch.team2 && this.team2Player<7)){
             if(player.playerRole == 'WICKETKEEPER' )
             {
-              if(this.wk == 0){
+              if(this.wk < 2){
                 player.selected = true;
                 this.team.push(player);
                 this.wk ++;
@@ -152,13 +152,13 @@ export class CreateTeamComponent implements OnInit {
                 if(player.club == this.currentMatch.team1) this.team1Player ++; else this.team2Player++;
               }
               else{
-                window.alert("Can not select more than 1 wicket keeper.");
+                window.alert("Can not select more than 2 wicket keeper.");
               }
             }
 
             if(player.playerRole == 'ALLROUNDER' )
             {
-              if(this.ar < 2){
+              if(this.ar < 4){
                 player.selected = true;
                 this.team.push(player);
                 this.ar ++;
@@ -166,7 +166,7 @@ export class CreateTeamComponent implements OnInit {
                 if(player.club == this.currentMatch.team1) this.team1Player ++; else this.team2Player++;
               }
               else{
-                window.alert("Can not select more than 2 allrounders.");
+                window.alert("Can not select more than 4 allrounders.");
               }
             }
 
@@ -207,7 +207,7 @@ export class CreateTeamComponent implements OnInit {
           if((player.nationality == this.currentMatch.team1 && this.team1Player<7) ||(player.nationality == this.currentMatch.team2 && this.team2Player<7)){
             if(player.playerRole == 'WICKETKEEPER' )
             {
-              if(this.wk <= 0){
+              if(this.wk < 2){
                 player.selected = true;
                 this.team.push(player);
                 this.wk ++;
@@ -215,12 +215,12 @@ export class CreateTeamComponent implements OnInit {
                 if(player.nationality == this.currentMatch.team1) this.team1Player ++; else this.team2Player++;
               }
               else{
-                window.alert("Can not select more than 1 wicket keeper");
+                window.alert("Can not select more than 2 wicket keeper");
               }
             }
             if(player.playerRole == 'ALLROUNDER' )
             {
-              if(this.ar < 2){
+              if(this.ar < 4){
                 player.selected = true;
                 this.team.push(player);
                 this.ar ++;
