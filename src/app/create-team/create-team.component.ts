@@ -95,7 +95,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   getBowlers(){
-    this.instruction = 'Pick 3-5 Bowlers';
+    this.instruction = 'Pick 2-5 Bowlers';
     this.playerList = [];
     for(let player of this.players){
       if(player.playerRole == 'BOWLER')
@@ -104,7 +104,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   getBatsmen(){
-    this.instruction = 'Pick 3-5 Batsmen';
+    this.instruction = 'Pick 2-5 Batsmen';
     this.playerList = [];
     for(let player of this.players){
       if(player.playerRole == 'BATSMAN')
@@ -303,6 +303,26 @@ export class CreateTeamComponent implements OnInit {
   saveAndNext(){
     if(this.team.length<11){
       window.alert("You need to have 11 players in the one team.");
+      return;
+    }
+
+    if(this.wk<1){
+      window.alert("You need to have atleast 1 wicketkeeper in the team.");
+      return;
+    }
+
+    if(this.bat<2){
+      window.alert("You need to have atleast 2 batsmen in the team.");
+      return;
+    }
+
+    if(this.ball<2){
+      window.alert("You need to have atleast 2 bowlers in the team.");
+      return;
+    }
+
+    if(this.ar<2){
+      window.alert("You need to have atleast 2 all-rounders in the team.");
       return;
     }
     this.util.team1PlayerCount = this.team1Player;
