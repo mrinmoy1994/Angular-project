@@ -47,15 +47,23 @@
 
 .scroll{
     -ms-overflow-style: none;
-    height: 16vh!important;
+    height: 12vh!important;
 }
 
 .scroll::-webkit-scrollbar {
     display: none;
 }
+.grid_scroll {
+    -ms-overflow-style: none;
+    height: 3vh;
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+}
+.grid_scroll::-webkit-scrollbar {
+    display: none;
+}
 .creadits_players_container {
-    padding: 0.5rem;
-    background-image: linear-gradient(rgb(232, 237, 240),rgb(15, 138, 238));
+     background-image: linear-gradient(rgb(232, 237, 240),rgb(15, 138, 238));
     border-radius: 20px;margin: 0.5rem;
 }
 .creadits_players {
@@ -90,7 +98,11 @@
     }
 }
 .grid{
-    padding: 0%; padding-top:1%;margin-bottom: 2px; background-image: linear-gradient(rgb(162, 200, 231),rgb(240, 242, 243));
+    padding: 0%; 
+    padding-top:1%;
+    margin-bottom: 2px; 
+    background-image: linear-gradient(rgb(162, 200, 231),rgb(240, 242, 243));
+    height: 3rem;
 }
 
 .grid:hover{

@@ -79,7 +79,7 @@
             </div>
             <div class="scroll">
                 <div class="col-sm-12 col-xs-12 grid" *ngFor="let player of playerList">
-                    <div class="col-sm-3 col-xs-3">{{player.displayName}}<br />{{player.nationality}}</div>
+                    <div class="col-sm-3 col-xs-3 grid_scroll">{{player.displayName}}<br />{{player.nationality}}</div>
                     <div class="col-sm-3 col-xs-3">{{player.point}}</div>
                     <div class="col-sm-3 col-xs-3">{{player.price}}</div>
                     <div *ngIf="!player.selected" class="col-sm-3 col-xs-3" (click)="addPlayers(player.id)"
