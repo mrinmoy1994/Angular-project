@@ -76,8 +76,12 @@ p{
     border-width: 1px; 
     background-color: rgb(13, 72, 182);
     cursor: pointer;
-    min-height: 5rem;
-    padding: 1.5rem 0.5rem;
+    min-height: 2rem;
+    width: 4rem;
+    position: absolute;
+    margin-top: 4rem;
+    padding: 0.5rem;
+    
 }
 
 .matchMenu:hover {
