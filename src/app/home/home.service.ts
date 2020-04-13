@@ -47,7 +47,8 @@ export class HomeService {
     if(token){
       let headers = new HttpHeaders();
       headers = headers.set('Authorization', token);
-      let ids: any[] = [matchId];
+      let ids: any[] = [];
+      ids.push(matchId);
       return this.http.post('https://dev.captainxcc.com/capx/rest/contest/search/matchids/do', ids, { headers: headers});
     }
   }

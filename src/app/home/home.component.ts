@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { saveAs } from 'file-saver';
 import { Router } from '@angular/router';
-import { UrlConfiguration, match, contest, Team } from './../core/url-configuration';
+import {
+  UrlConfiguration,
+  match,
+  contest,
+  Team,
+} from './../core/url-configuration';
 import { UtilityService } from './../core/utility.service';
-import {ShowTeamsService} from './../show-teams/show-teams.service'
+import { ShowTeamsService } from './../show-teams/show-teams.service';
 import {
   ɵBROWSER_SANITIZATION_PROVIDERS,
   DomSanitizer,
@@ -32,7 +37,7 @@ export class HomeComponent implements OnInit {
     private service: HomeService,
     private sanitizer: DomSanitizer,
     private util: UtilityService,
-    private teamService :ShowTeamsService
+    private teamService: ShowTeamsService
   ) {}
 
   ngOnInit() {
@@ -40,6 +45,9 @@ export class HomeComponent implements OnInit {
       (data) => {
         this.matches = data.data as match[];
         this.count = this.matches.length;
+
+        this.getAllContestData();
+
         for (const m of this.matches) {
           console.log(m.matchTime);
           const time = m.matchTime.split('T');
@@ -56,37 +64,30 @@ export class HomeComponent implements OnInit {
             ', ' +
             time[1];
           console.log(m);
-          this.service.getContestData(m.id).subscribe(
-            (data) => {
-              console.log(data);
-              const contests = data.data as contest[];
-              m.totalLeagues = contests.length;
-              let ammount = 0;
-              for (const contest of contests) {
-                ammount += contest.totalPrize;
-              }
-              m.totalMoney = ammount;
-              this.service.getTeamImage(m.category, m.team1Id).subscribe(
-                (data) => {
-                  const blob = new Blob([data], { type: 'image/png' });
-                  const url = window.URL.createObjectURL(blob);
-                  m.team1pic = this.sanitizer.bypassSecurityTrustUrl(url);
-                },
-                (error) => {
-                  console.log(error);
-                }
-              );
 
-              this.service.getTeamImage(m.category, m.team2Id).subscribe(
-                (data) => {
-                  const blob = new Blob([data], { type: 'image/png' });
-                  const url = window.URL.createObjectURL(blob);
-                  m.team2pic = this.sanitizer.bypassSecurityTrustUrl(url);
-                },
-                (error) => {
-                  console.log(error);
-                }
-              );
+          const contests = this.getCurrentMatchContests(m.id);
+          m.totalLeagues = contests.length;
+          let ammount = 0;
+          for (const contest of contests) {
+            ammount += contest.totalPrize;
+          }
+          m.totalMoney = ammount;
+          this.service.getTeamImage(m.category, m.team1Id).subscribe(
+            (data) => {
+              const blob = new Blob([data], { type: 'image/png' });
+              const url = window.URL.createObjectURL(blob);
+              m.team1pic = this.sanitizer.bypassSecurityTrustUrl(url);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+
+          this.service.getTeamImage(m.category, m.team2Id).subscribe(
+            (data) => {
+              const blob = new Blob([data], { type: 'image/png' });
+              const url = window.URL.createObjectURL(blob);
+              m.team2pic = this.sanitizer.bypassSecurityTrustUrl(url);
             },
             (error) => {
               console.log(error);
@@ -105,8 +106,33 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  getAllContestData() {
+    let ids: number[] = [];
+    for (let match of this.matches) {
+      ids.push(match.id);
+    }
+    this.service.getContestData(ids).subscribe(
+      (res) => {
+        const contests = res.data as contest[];
+        this.util.contests = contests;
+      },
+      (error) => {}
+    );
+  }
+
+  getCurrentMatchContests(id) {
+    let contests = this.util.contests;
+    let temp: contest[] = [];
+    if (contests && contests.length > 0) {
+      for (let contest of contests) {
+        if (contest.matchId == id) temp.push(contest);
+      }
+    }
+
+    return temp;
+  }
+
   saveData(match: match, contests: contest[]) {
-    this.util.contests = contests;
     this.util.matches = this.matches;
     this.util.currentMatch = match;
   }
@@ -136,8 +162,7 @@ export class HomeComponent implements OnInit {
         this.teamService.getTeamsData(match.id).subscribe(
           (data) => {
             let teams = data.data as Team[];
-            if(teams.length<5)
-            {
+            if (teams.length < 5) {
               this.service.getContestData(match.id).subscribe(
                 (data) => {
                   console.log(data);
@@ -150,9 +175,8 @@ export class HomeComponent implements OnInit {
                   console.log(error);
                 }
               );
-            }
-            else{
-              window.alert("You can not create more than 5 teams for a match.");
+            } else {
+              window.alert('You can not create more than 5 teams for a match.');
               return;
             }
           },
@@ -160,7 +184,6 @@ export class HomeComponent implements OnInit {
             console.log(error);
           }
         );
-        
       }
     }
   }
