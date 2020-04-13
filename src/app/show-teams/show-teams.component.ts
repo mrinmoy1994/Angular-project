@@ -116,7 +116,7 @@ export class ShowTeamsComponent implements OnInit {
     for(let team of this.teams){
       if(team.id == teamId){
         this.util.currentTeam = team.players;
-        console.log(this.util.currentTeam);
+        this.util.backPage = '/showTeam';
         this.router.navigateByUrl("/preview");
       }
     }

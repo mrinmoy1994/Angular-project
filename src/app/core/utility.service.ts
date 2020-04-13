@@ -20,6 +20,14 @@ export class UtilityService {
     private _captain : any;
     private _viceCaptain : any;
     private _editableTeamId : number;
+    private _backPage : any;
+
+    public get backPage() {
+      return this._backPage;
+    }
+    public set backPage(page) {
+      this._backPage = page;
+    } 
 
     public get editableTeamId() {
       return this._editableTeamId;

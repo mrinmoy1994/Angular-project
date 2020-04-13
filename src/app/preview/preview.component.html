@@ -4,6 +4,9 @@
   </div>
 
   <div class="previewBack">
+    <div class="col-sm-12 col-xs-12">
+        <div class="matchMenu" (click)="back()"><mat-icon>keyboard_return</mat-icon></div>
+    </div>
     <div *ngIf="wk" class="previewLevel">
       <div *ngIf="wk.length==1" style="padding: 0%;">
         <div *ngFor="let player of wk" style="padding: 10%; text-align: center;">

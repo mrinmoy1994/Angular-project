@@ -301,6 +301,15 @@ export class CreateTeamComponent implements OnInit {
   }
 
   saveAndNext(){
+    this.util.team1PlayerCount = this.team1Player;
+    this.util.team2PlayerCount = this.team2Player;
+    this.util.currentTeam = this.team;
+    this.util.credit = this.credit;
+    this.util.availPlayers = this.players;
+  }
+
+  next(){
+    this.saveAndNext();
     if(this.team.length<11){
       window.alert("You need to have 11 players in the one team.");
       return;
@@ -325,16 +334,13 @@ export class CreateTeamComponent implements OnInit {
       window.alert("You need to have atleast 2 all-rounders in the team.");
       return;
     }
-    this.util.team1PlayerCount = this.team1Player;
-    this.util.team2PlayerCount = this.team2Player;
-    this.util.currentTeam = this.team;
-    this.util.credit = this.credit;
-    this.util.availPlayers = this.players;
     this.router.navigateByUrl("/chooseCaptain");
   }
 
   preview(){
     this.util.currentTeam = this.team;
+    this.saveAndNext();
+    this.util.backPage = "/createTeam";
     this.router.navigateByUrl("/preview");
   }
 

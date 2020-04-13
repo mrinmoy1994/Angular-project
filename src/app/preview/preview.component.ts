@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from './../core/utility.service';
 import { UrlConfiguration, match, contest, player } from './../core/url-configuration';
 import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preview',
@@ -16,7 +17,7 @@ export class PreviewComponent implements OnInit {
   bat : player[] = [];
   ball : player[] = [];
 
-  constructor(private util : UtilityService) {
+  constructor(private util : UtilityService, private router : Router) {
     
    }
 
@@ -39,6 +40,10 @@ export class PreviewComponent implements OnInit {
         this.ar.push(player);
     }
 
+  }
+
+  back(){
+    this.router.navigateByUrl(this.util.backPage);
   }
 
 }
