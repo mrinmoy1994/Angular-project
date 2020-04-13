@@ -71,22 +71,22 @@
             <div style="padding: 1%;">
                 <div class="col-sm-12 col-xs-12"
                     style="border-radius: 5px; background-image: linear-gradient(rgb(128, 192, 245),rgb(232, 237, 240));">
-                    <div class="col-sm-3 col-xs-3" style="padding: 0%; font-size: smaller;">Player's Name</div>
-                    <div class="col-sm-3 col-xs-3" style="padding: 0%; font-size: smaller;">Points</div>
-                    <div class="col-sm-3 col-xs-3" style="padding: 0%; font-size: smaller;">Credits</div>
-                    <div class="col-sm-3 col-xs-3" style="padding: 0%; font-size: smaller;">Action</div>
+                    <div class="col-sm-6 col-xs-6" style="padding: 0%; font-size: smaller;">Player's Name</div>
+                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Points</div>
+                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Credits</div>
+                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Action</div>
                 </div>
             </div>
             <div class="scroll">
                 <div class="col-sm-12 col-xs-12 grid" *ngFor="let player of playerList">
-                    <div class="col-sm-3 col-xs-3 grid_scroll">{{player.displayName}}<br />{{player.nationality}}</div>
-                    <div class="col-sm-3 col-xs-3">{{player.point}}</div>
-                    <div class="col-sm-3 col-xs-3">{{player.price}}</div>
-                    <div *ngIf="!player.selected" class="col-sm-3 col-xs-3" (click)="addPlayers(player.id)"
+                    <div class="col-sm-6 col-xs-6 grid_scroll">{{player.displayName}}<span style="font-size: smaller;">({{player.nationality}})</span></div>
+                    <div class="col-sm-2 col-xs-2">{{player.point}}</div>
+                    <div class="col-sm-2 col-xs-2">{{player.price}}</div>
+                    <div *ngIf="!player.selected" class="col-sm-2 col-xs-2" (click)="addPlayers(player.id)"
                         style="color: rgb(19, 245, 38); cursor: pointer;">
                         <mat-icon>add</mat-icon>
                     </div>
-                    <div *ngIf="player.selected" class="col-sm-3 col-xs-3" (click)="removePlayers(player.id)"
+                    <div *ngIf="player.selected" class="col-sm-2 col-xs-2" (click)="removePlayers(player.id)"
                         style="color: rgb(240, 25, 25);cursor: pointer;">
                         <mat-icon>remove</mat-icon>
                     </div>
