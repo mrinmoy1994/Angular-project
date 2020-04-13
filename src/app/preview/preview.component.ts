@@ -23,6 +23,8 @@ export class PreviewComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(!this.util.currentTeam)
+    this.router.navigateByUrl('/home');
     this.team = this.util.currentTeam;
 
     console.log("in init");

@@ -7,7 +7,7 @@
     <!-- <div class="col-sm-12 col-xs-12"> -->
         <div class="matchMenu" (click)="back()"><mat-icon>keyboard_return</mat-icon></div>
     <!-- </div> -->
-    <div class="col-sm-12 levelTag" style="padding: 0.5rem;">WICKET KEEPER</div>
+  
     <div *ngIf="wk" class="previewLevel">
       <div *ngIf="wk.length==1" style="padding: 0%;">
         <div *ngFor="let player of wk" style="padding: 10%; text-align: center;">
@@ -25,7 +25,7 @@
       </div>
     </div>
     
-
+    <div class="col-sm-12 levelTag" style="padding: 0.5rem;">WICKET KEEPER</div>
     <div *ngIf="bat" class="previewLevel">
       <div *ngIf="bat.length==3">
         <div class="col-sm-4" *ngFor="let player of bat">
