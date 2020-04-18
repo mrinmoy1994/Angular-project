@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateTeamComponent } from './create-team/create-team.component';
-
+import {ProgressBarModule} from "angular-progress-bar";
 import { CountdownModule } from "ng2-date-countdown";
 import { ChooseCaptainComponent } from './choose-captain/choose-captain.component';
 import { ShowTeamsComponent } from './show-teams/show-teams.component';
@@ -20,6 +20,9 @@ import { PreviewComponent } from './preview/preview.component';
 import { ButtonComponent } from './common/button/button.component';
 import { SelectContestComponent } from './select-contest/select-contest.component';
 import { OpenContestComponent } from './open-contest/open-contest.component';
+import { breakupModalComponent } from './breakup-modal/breakup-modal.component';
+import { ParticipantsComponent } from './participants/participants.component';
+import { JoinComponent } from './join/join.component';
 
 @NgModule({
   imports:      [ 
@@ -30,9 +33,11 @@ import { OpenContestComponent } from './open-contest/open-contest.component';
     AppRoutingModule, 
     MatIconModule, 
     BrowserAnimationsModule,
-    CountdownModule
+    CountdownModule,
+    ProgressBarModule
   ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent, ButtonComponent, SelectContestComponent, OpenContestComponent ],
+  entryComponents: [breakupModalComponent],
+  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent, ButtonComponent, SelectContestComponent, OpenContestComponent, breakupModalComponent, ParticipantsComponent, JoinComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

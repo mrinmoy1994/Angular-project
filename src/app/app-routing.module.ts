@@ -10,6 +10,8 @@ import { ShowTeamsComponent} from './show-teams/show-teams.component';
 import { PreviewComponent } from './preview/preview.component';
 import { SelectContestComponent } from './select-contest/select-contest.component';
 import { OpenContestComponent} from './open-contest/open-contest.component';
+import { ParticipantsComponent} from './participants/participants.component';
+import { JoinComponent} from './join/join.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'showTeam', component : ShowTeamsComponent},
   { path: 'preview', component : PreviewComponent},
   { path: 'selectContest', component : SelectContestComponent},
-  { path: 'openContest', component : OpenContestComponent}
+  { path: 'openContest', component : OpenContestComponent},
+  { path: 'participants', component : ParticipantsComponent},
+  { path: 'join', component : JoinComponent}
 ];
 
 @NgModule({
