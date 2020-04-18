@@ -56,8 +56,7 @@
                   </div>
 
                   <div class="col-sm-12 col-xs-12 display_center">
-                    <div class="buttons" (click)=showTeams(currentContests)>Show Teams</div>
-                    <div class="buttons" (click)="join(currentContests)">Join </div>
+                    <div class="buttons" (click)=showTeams(currentContests)>Player Status</div>
                     <div class="buttons" (click)="openbreakupmodal()">Winning Breakup</div>
                   </div>
       
@@ -86,3 +85,7 @@
         <app-footer></app-footer>
     </div>
 </div>
+
+<app-breakup-modal *ngIf="showbreakupmodal" (closeModal)="closebreakupmodal()">
+    <!-- <button (click) ="closeModal()">close</button> -->
+  </app-breakup-modal>
