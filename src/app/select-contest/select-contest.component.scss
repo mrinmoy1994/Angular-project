@@ -1,0 +1,58 @@
+.grid_scroll {
+    -ms-overflow-style: none;
+    height: 60vh;
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+    text-align: center;
+}
+.grid_scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.league {
+    // padding: 1rem 0rem; etate scroll kind of asche
+    border-radius: 10px;
+    margin-bottom: 2%; 
+    background-image: linear-gradient(rgb(135, 197, 248),rgb(232, 237, 240));
+    .font_color {
+        // color: rgb(27, 27, 92);
+        font-weight: bold;
+        color: rgb(13, 13, 148);
+        // font-size: small;
+    }
+}
+
+.gameplay{
+    display: flex;
+    flex-direction: column;
+    border-color: white; 
+    border-width: 2px; 
+    border-style: solid; 
+    border-radius: 5px; 
+    background-color: rgb(18, 39, 109); 
+    // height: 40vmax; 
+    padding: 0%;
+    margin: 0%; 
+    text-align: center;
+    .header_icon {
+        text-align: center; 
+        background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); 
+        padding: 0.5rem;
+        color: white; 
+        border-radius: 5px 5px 0px 0px;
+        img {
+            width: 8rem;        
+        }
+    }   
+    .team {
+        padding-top: 1rem;
+        font-weight: bolder; 
+        font-size: 12px; 
+        color: blue;
+    }
+    .starts_in {
+        font-weight: bolder; 
+        font-size: 12px; 
+        padding: 0%;
+    }
+}

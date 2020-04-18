@@ -1,0 +1,67 @@
+<div class="gameplay">
+  <div class="col-sm-12 col-xs-12 header_icon">
+    <img src="./assets/LOGO2.png" />
+  </div>
+
+  <div style="max-height: 80vh;">
+
+    <div class="col-sm-12 col-xs-12" style="color: white;">
+      <div class="col-sm-3 col-xs-3"></div>
+      <div class="col-sm-6 col-xs-6">
+        <div style="padding-top: 0%; width: 100%;"></div>
+
+
+        <div class="timer" style="color: white;">
+          STARTS IN
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-3"></div>
+    </div>
+
+    <div class="col-sm-12 col-xs-12" style="color: white;">
+      <div class="col-sm-3 col-xs-3"></div>
+      <div class="col-sm-6 col-xs-6">
+        <div style="padding-top: 0%; width: 100%;"></div>
+
+
+        <div class="timer" style="color: white;">
+          <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
+            end={{currentMatch.matchTimeinSec}}>
+          </countdown>
+          <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-3"></div>
+    </div>
+    <div class="col-sm-12 col-xs-12 " *ngIf="map" style="max-height: 100vh;">
+      <div class="grid_scroll">
+
+        <div *ngFor="let recipient of map | keyvalue" >
+          <div class="col-sm-12 col-xs-12 league" style="height: 14vh;" (click)="onContestClick(recipient.key)">
+            <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 2%;">
+              <div class="font_color">TYPE {{recipient.key}}</div>
+            </div>
+            <div class="col-sm-12 col-xs-12 display_space-around" style="">
+              <div class="font_color col-sm-8 col-xs-8">
+                <div class="col-sm-2 col-xs-2"
+                  style="top:1vh;height:6vh;width : 6vh;vertical-align: middle ;text-align: left;border-radius: 50%; background-color: rgb(27, 27, 119); color: white;">
+                  {{recipient.value}}</div>
+                <div class="col-sm-9 col-xs-9"
+                  style="top:2vh;height:4vh;vertical-align: baseline ;text-align: center;border-radius: 0 5px 5px 0; background-color: rgb(27, 27, 119); color: white;">
+                  Tounaments</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <app-footer></app-footer>
+  </div>
+
+</div>

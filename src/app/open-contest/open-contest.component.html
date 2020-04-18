@@ -1,0 +1,40 @@
+<div class="gameplay">
+    <div class="col-sm-12 col-xs-12 header_icon">
+        <img src="./assets/LOGO2.png" />
+    </div>
+
+    <div style="max-height: 70vh;">
+
+        <div class="col-sm-12 col-xs-12" style="color: white;">
+            <div class="col-sm-3 col-xs-3"></div>
+            <div class="col-sm-6 col-xs-6">
+                <div style="padding-top: 0%; width: 100%;"></div>
+                
+
+                <div class="timer" style="color: white;">
+                    STARTS IN
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-3"></div>
+        </div>
+
+        <div class="col-sm-12 col-xs-12" style="color: white;">
+            <div class="col-sm-3 col-xs-3"></div>
+            <div class="col-sm-6 col-xs-6">
+                <div style="padding-top: 0%; width: 100%;"></div>
+                
+
+                <div class="timer" style="color: white;">
+                    <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
+                        end={{currentMatch.matchTimeinSec}}>
+                    </countdown>
+                    <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-3"></div>
+        </div>
+    </div>
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

@@ -22,6 +22,7 @@ import {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  allcontests: contest[];
   matches: match[];
   count: number;
   img: any;
@@ -46,7 +47,22 @@ export class HomeComponent implements OnInit {
         this.matches = data.data as match[];
         this.count = this.matches.length;
 
-        this.getAllContestData();
+       // this.getAllContestData();
+
+       let ids: number[] = [];
+    for (let match of this.matches) {
+      ids.push(match.id);
+    }
+    console.log(ids);
+    this.service.getContestData(ids).subscribe(
+      (res) => {
+        console.log(res);
+        const contests = res.data as contest[];
+        console.log(contests);
+        this.util.contests = contests;
+        this.allcontests = contests;
+        console.log(this.util.contests);
+      
 
         for (const m of this.matches) {
           console.log(m.matchTime);
@@ -66,6 +82,7 @@ export class HomeComponent implements OnInit {
           console.log(m);
 
           const contests = this.getCurrentMatchContests(m.id);
+          console.log(contests);
           m.totalLeagues = contests.length;
           let ammount = 0;
           for (const contest of contests) {
@@ -94,6 +111,12 @@ export class HomeComponent implements OnInit {
             }
           );
         }
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
       },
       (error) => {
         console.log(error);
@@ -111,20 +134,30 @@ export class HomeComponent implements OnInit {
     for (let match of this.matches) {
       ids.push(match.id);
     }
+    console.log(ids);
     this.service.getContestData(ids).subscribe(
       (res) => {
+        console.log(res);
         const contests = res.data as contest[];
+        console.log(contests);
         this.util.contests = contests;
+        this.allcontests = contests;
+        console.log(this.util.contests);
       },
-      (error) => {}
+      (error) => {
+        console.log(error);
+      }
     );
   }
 
   getCurrentMatchContests(id) {
-    let contests = this.util.contests;
+    if (!this.util.contests) 
+      this.getAllContestData();
+    //let contests = this.util.contests;
     let temp: contest[] = [];
-    if (contests && contests.length > 0) {
-      for (let contest of contests) {
+    console.log(this.util.contests);
+    if (this.util.contests && this.util.contests.length > 0) {
+      for (let contest of this.util.contests) {
         if (contest.matchId == id) temp.push(contest);
       }
     }
@@ -137,20 +170,22 @@ export class HomeComponent implements OnInit {
     this.util.currentMatch = match;
   }
 
+  selectContest(matchId: any) {
+    for (const match of this.matches) {
+      if (match.id === matchId) {
+        const contests = this.getCurrentMatchContests(match.id);
+        this.saveData(match, contests);
+        this.router.navigateByUrl('/selectContest');
+      }
+    }
+  }
+
   onShowTeamsClick(matchId: any) {
     for (const match of this.matches) {
       if (match.id === matchId) {
-        this.service.getContestData(match.id).subscribe(
-          (data) => {
-            console.log(data);
-            const contests = data.data as contest[];
-            this.saveData(match, contests);
-            this.router.navigateByUrl('/showTeam');
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+        const contests = this.getCurrentMatchContests(match.id);
+        this.saveData(match, contests);
+        this.router.navigateByUrl('/showTeam');
       }
     }
   }

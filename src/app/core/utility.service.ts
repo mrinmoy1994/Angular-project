@@ -21,6 +21,14 @@ export class UtilityService {
     private _viceCaptain : any;
     private _editableTeamId : number;
     private _backPage : any;
+    private _contestType : any;
+
+    public get contestType() {
+      return this._contestType;
+    }
+    public set contestType(Type) {
+      this._contestType = Type;
+    }
 
     public get backPage() {
       return this._backPage;
