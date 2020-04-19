@@ -1,91 +1,87 @@
-<div class="gameplay">
-    <div class="col-sm-12 col-xs-12 header_icon">
-        <img src="./assets/LOGO2.png" />
+<div style="max-height: 70vh;">
+
+  <div class="col-sm-12 col-xs-12" style="color: white;">
+    <div class="col-sm-3 col-xs-3"></div>
+    <div class="col-sm-6 col-xs-6">
+      <div style="padding-top: 0%; width: 100%;"></div>
+
+
+      <div class="timer" style="color: white;">
+        STARTS IN
+      </div>
     </div>
+    <div class="col-sm-3 col-xs-3"></div>
+  </div>
 
-    <div style="max-height: 70vh;">
+  <div class="col-sm-12 col-xs-12" style="color: white;">
+    <div class="col-sm-3 col-xs-3"></div>
+    <div class="col-sm-6 col-xs-6">
+      <div style="padding-top: 0%; width: 100%;"></div>
 
-        <div class="col-sm-12 col-xs-12" style="color: white;">
-            <div class="col-sm-3 col-xs-3"></div>
-            <div class="col-sm-6 col-xs-6">
-                <div style="padding-top: 0%; width: 100%;"></div>
-                
 
-                <div class="timer" style="color: white;">
-                    STARTS IN
-                </div>
-            </div>
-            <div class="col-sm-3 col-xs-3"></div>
-        </div>
-
-        <div class="col-sm-12 col-xs-12" style="color: white;">
-            <div class="col-sm-3 col-xs-3"></div>
-            <div class="col-sm-6 col-xs-6">
-                <div style="padding-top: 0%; width: 100%;"></div>
-                
-
-                <div class="timer" style="color: white;">
-                    <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
-                        end={{currentMatch.matchTimeinSec}}>
-                    </countdown>
-                    <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-xs-3"></div>
-        </div>
-
-        <div class="col-sm-12 col-xs-12 " *ngIf="currentContests">
-            <div class="col-sm-12 col-xs-12 league" style="height: 22vh;">
-                  <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 2%;">
-                    <div class="col-sm-1 col-xs-1 font_color circleBorder" >{{currentContests.type}}</div>
-                    <div class="col-sm-1 col-xs-1 font_color" ></div>
-                    <div class="col-sm-8 col-xs-8 font_color" style="text-align: center;">
-                        <div class="col-sm-12 col-xs-12">Winning amoung : Rs. {{currentContests.totalPrize}}/-</div>
-                        <div class="col-sm-12 col-xs-12">Entry Fee : Rs. {{currentContests.entryFee}}/-</div>
-                    </div>
-                    <div class="col-sm-1 col-xs-1 font_color"></div>
-                    <div class="col-sm-1 col-xs-1 font_color"></div>
-                  </div>
-                  <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 0;">
-                    <div style="width: 100vw;padding: 0;">
-                        <progress-bar [progress]="currentContests.currentParticipants/currentContests.participants" [color]="'#488aff'"></progress-bar>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-xs-12 display_space-around" style="padding:0;">
-                    <div>No. of Participating Captains: {{currentContests.currentParticipants}}/{{currentContests.participants}}</div>
-                  </div>
-
-                  <div class="col-sm-12 col-xs-12 display_center">
-                    <div class="buttons" (click)=showTeams(currentContests)>Player Status</div>
-                    <div class="buttons" (click)="openbreakupmodal()">Winning Breakup</div>
-                  </div>
-      
-                </div>
-        </div>
-
-        <div class="col-sm-12 col-xs-12 display_center">
-            <div class="col-sm-12 col-xs-12 display_center" style="text-align: left;border-radius: 10px; background-color: white; color: rgb(11, 29, 131);">
-            <div class="col-sm-2 col-xs-2 ">Rank</div>
-            <div class="col-sm-8 col-xs-8 ">Team</div>
-            <div class="col-sm-2 col-xs-2 ">Point</div>
-            </div>
-          </div>
-        <div class="col-sm-12 col-xs-12 "  style="max-height: 30vh;">
-            <div class="grid_scroll">
-
-      
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-xs-12 display_center">
-            <div class="buttons" (click)=showTeams(currentContests)><mat-icon>keyboard_return</mat-icon>Back</div>
-          </div>
+      <div class="timer" style="color: white;">
+        <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
+          end={{currentMatch.matchTimeinSec}}>
+        </countdown>
+        <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
+      </div>
     </div>
-    <div>
-        <app-footer></app-footer>
+    <div class="col-sm-3 col-xs-3"></div>
+  </div>
+
+  <div class="col-sm-12 col-xs-12 " *ngIf="currentContests">
+    <div class="col-sm-12 col-xs-12 league" style="height: 22vh;">
+      <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 2%;">
+        <div class="col-sm-1 col-xs-1 font_color circleBorder">{{currentContests.type}}</div>
+        <div class="col-sm-1 col-xs-1 font_color"></div>
+        <div class="col-sm-8 col-xs-8 font_color" style="text-align: center;">
+          <div class="col-sm-12 col-xs-12">Winning amoung : Rs. {{currentContests.totalPrize}}/-</div>
+          <div class="col-sm-12 col-xs-12">Entry Fee : Rs. {{currentContests.entryFee}}/-</div>
+        </div>
+        <div class="col-sm-1 col-xs-1 font_color"></div>
+        <div class="col-sm-1 col-xs-1 font_color"></div>
+      </div>
+      <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 0;">
+        <div style="width: 100vw;padding: 0;">
+          <progress-bar [progress]="currentContests.currentParticipants/currentContests.participants"
+            [color]="'#488aff'"></progress-bar>
+        </div>
+      </div>
+      <div class="col-sm-12 col-xs-12 display_space-around" style="padding:0;">
+        <div>No. of Participating Captains: {{currentContests.currentParticipants}}/{{currentContests.participants}}
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xs-12 display_center">
+        <div class="buttons" (click)=showTeams(currentContests)>Player Status</div>
+        <div class="buttons" (click)="openbreakupmodal()">Winning Breakup</div>
+      </div>
+
     </div>
+  </div>
+
+  <div class="col-sm-12 col-xs-12 display_center">
+    <div class="col-sm-12 col-xs-12 display_center"
+      style="text-align: left;border-radius: 10px; background-color: white; color: rgb(11, 29, 131);">
+      <div class="col-sm-2 col-xs-2 ">Rank</div>
+      <div class="col-sm-8 col-xs-8 ">Team</div>
+      <div class="col-sm-2 col-xs-2 ">Point</div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-xs-12 " style="max-height: 30vh;">
+    <div class="grid_scroll">
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-xs-12 display_center">
+    <div class="buttons" (click)=showTeams(currentContests)>
+      <mat-icon>keyboard_return</mat-icon>Back
+    </div>
+  </div>
 </div>
 
 <app-breakup-modal *ngIf="showbreakupmodal" (closeModal)="closebreakupmodal()">
-    <!-- <button (click) ="closeModal()">close</button> -->
-  </app-breakup-modal>
+  <!-- <button (click) ="closeModal()">close</button> -->
+</app-breakup-modal>

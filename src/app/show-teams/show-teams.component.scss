@@ -10,7 +10,11 @@
     text-align: center;
     
 }
-
+.container {
+    div:nth-child(3) {
+        margin-top: auto;
+    }
+}
 .bottomMenu{
     text-align: center; top: 10%;font-size: xx-small;padding: 0%;
     cursor: pointer;
