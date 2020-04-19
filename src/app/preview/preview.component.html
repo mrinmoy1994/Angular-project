@@ -1,119 +1,109 @@
-<!-- <div class="display_container gameplay">
-  <div class="col-sm-12 col-xs-12 header_container">
-    <app-header></app-header>
-  </div> -->
+<div class="col-sm-12 previewBack">
+  <!-- <div class="col-sm-12 col-xs-12"> -->
+  <div class="matchMenu" (click)="back()">
+    <mat-icon>keyboard_return</mat-icon>
+  </div>
+  <!-- </div> -->
 
-  <div class="col-sm-12 previewBack">
-    <!-- <div class="col-sm-12 col-xs-12"> -->
-    <div class="matchMenu" (click)="back()">
-      <mat-icon>keyboard_return</mat-icon>
+  <div *ngIf="wk" class="previewLevel">
+    <div *ngIf="wk.length==1" style="padding: 0%;">
+      <div *ngFor="let player of wk" style="padding: 10%; text-align: center;">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="10%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
     </div>
-    <!-- </div> -->
+    <div *ngIf="wk.length==2" style="padding: 0%;">
+      <div class="col-sm-3" style="width: 100%;"></div>
+      <div class="col-sm-2" *ngFor="let player of wk">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="50%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+      <div class="col-sm-1" style="width: 100%;"></div>
+    </div>
+  </div>
 
-    <div *ngIf="wk" class="previewLevel">
-      <div *ngIf="wk.length==1" style="padding: 0%;">
-        <div *ngFor="let player of wk" style="padding: 10%; text-align: center;">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="10%" /></div>
+  <div class="col-sm-12 levelTag" style="padding: 0.5rem;">WICKET KEEPER</div>
+  <div *ngIf="bat" class="previewLevel">
+    <div *ngIf="bat.length==3">
+      <div class="col-sm-4" *ngFor="let player of bat">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+    </div>
+    <div *ngIf="bat.length==4">
+      <div class="col-sm-3" *ngFor="let player of bat">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+    </div>
+    <div *ngIf="bat.length==5">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2" *ngFor="let player of bat">
+        <div>
+          <div style="padding: 0%;"><img src="./assets/India.png" width="70%" /></div>
           <div style="padding: 0%;">{{player.displayName}}</div>
         </div>
       </div>
-      <div *ngIf="wk.length==2" style="padding: 0%;">
-        <div class="col-sm-3" style="width: 100%;"></div>
-        <div class="col-sm-2" *ngFor="let player of wk">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="50%" /></div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+  <div class="col-sm-12 levelTag">BATSMEN</div>
+
+  <div *ngIf="ar" class="previewLevel">
+    <div *ngIf="ar.length==1" style="padding: 0%;">
+      <div *ngFor="let player of ar" style="padding: 10%; text-align: center;">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="10%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+    </div>
+    <div *ngIf="ar.length==2" style="padding: 0%;">
+      <div class="col-sm-6" *ngFor="let player of ar">
+        <div style="width: 100%;">
+          <div style="padding: 0%;"><img src="./assets/India.png" width="15%" /></div>
           <div style="padding: 0%;">{{player.displayName}}</div>
         </div>
         <div class="col-sm-1" style="width: 100%;"></div>
       </div>
-    </div>
 
-    <div class="col-sm-12 levelTag" style="padding: 0.5rem;">WICKET KEEPER</div>
-    <div *ngIf="bat" class="previewLevel">
-      <div *ngIf="bat.length==3">
-        <div class="col-sm-4" *ngFor="let player of bat">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="bat.length==4">
-        <div class="col-sm-3" *ngFor="let player of bat">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="bat.length==5">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2" *ngFor="let player of bat">
-          <div>
-            <div style="padding: 0%;"><img src="./assets/India.png" width="70%" /></div>
-            <div style="padding: 0%;">{{player.displayName}}</div>
-          </div>
-        </div>
-        <div class="col-sm-1"></div>
+    </div>
+    <div *ngIf="ar.length==3">
+      <div class="col-sm-4" *ngFor="let player of ar">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
       </div>
     </div>
-    <div class="col-sm-12 levelTag">BATSMEN</div>
-
-    <div *ngIf="ar" class="previewLevel">
-      <div *ngIf="ar.length==1" style="padding: 0%;">
-        <div *ngFor="let player of ar" style="padding: 10%; text-align: center;">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="10%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="ar.length==2" style="padding: 0%;">
-        <div class="col-sm-6" *ngFor="let player of ar">
-          <div style="width: 100%;">
-            <div style="padding: 0%;"><img src="./assets/India.png" width="15%" /></div>
-            <div style="padding: 0%;">{{player.displayName}}</div>
-          </div>
-          <div class="col-sm-1" style="width: 100%;"></div>
-        </div>
-
-      </div>
-      <div *ngIf="ar.length==3">
-        <div class="col-sm-4" *ngFor="let player of ar">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="ar.length==4">
-        <div class="col-sm-3" *ngFor="let player of ar">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
+    <div *ngIf="ar.length==4">
+      <div class="col-sm-3" *ngFor="let player of ar">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
       </div>
     </div>
-    <div class="col-sm-12 levelTag">ALLROUNDERS</div>
-
-    <div *ngIf="ball" class="previewLevel">
-      <div *ngIf="ball.length==3">
-        <div class="col-sm-4" *ngFor="let player of ball">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="ball.length==4">
-        <div class="col-sm-3" *ngFor="let player of ball">
-          <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
-          <div style="padding: 0%;">{{player.displayName}}</div>
-        </div>
-      </div>
-      <div *ngIf="ball.length==5">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2" *ngFor="let player of ball">
-          <div>
-            <div style="padding: 0%;"><img src="./assets/India.png" width="70%" /></div>
-            <div style="padding: 0%;">{{player.displayName}}</div>
-          </div>
-        </div>
-        <div class="col-sm-1"></div>
-      </div>
-    </div>
-    <div class="col-sm-12 levelTag">BOWLERS</div>
   </div>
+  <div class="col-sm-12 levelTag">ALLROUNDERS</div>
 
-  <!-- <div class="col-sm-12 col-xs-12 footer_container">
-    <app-footer></app-footer>
+  <div *ngIf="ball" class="previewLevel">
+    <div *ngIf="ball.length==3">
+      <div class="col-sm-4" *ngFor="let player of ball">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="20%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+    </div>
+    <div *ngIf="ball.length==4">
+      <div class="col-sm-3" *ngFor="let player of ball">
+        <div style="padding: 0%;"><img src="./assets/India.png" width="40%" /></div>
+        <div style="padding: 0%;">{{player.displayName}}</div>
+      </div>
+    </div>
+    <div *ngIf="ball.length==5">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2" *ngFor="let player of ball">
+        <div>
+          <div style="padding: 0%;"><img src="./assets/India.png" width="70%" /></div>
+          <div style="padding: 0%;">{{player.displayName}}</div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
   </div>
-</div> -->
+  <div class="col-sm-12 levelTag">BOWLERS</div>
+</div>

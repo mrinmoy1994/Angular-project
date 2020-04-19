@@ -1,111 +1,102 @@
-<!-- <div class="display_container gameplay">
-    <div class="col-sm-12 col-xs-12 header_container">
-        <app-header></app-header>
-    </div> -->
+<div class="display_column">
 
-    <div class="display_column">
+    <div class="col-sm-12 col-xs-12" style="color: white;">
+        <div class="col-sm-3 col-xs-3"></div>
+        <div class="col-sm-6 col-xs-6">
+            <div style="padding-top: 0%; width: 100%;"></div>
+            <div class="starts_in">STARTS IN </div>
 
-        <div class="col-sm-12 col-xs-12" style="color: white;">
-            <div class="col-sm-3 col-xs-3"></div>
-            <div class="col-sm-6 col-xs-6">
-                <div style="padding-top: 0%; width: 100%;"></div>
-                <div class="starts_in">STARTS IN </div>
-
-                <div class="timer" style="color: white;">
-                    <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
-                        end={{currentMatch.matchTimeinSec}}>
-                    </countdown>
-                    <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-xs-3"></div>
-        </div>
-
-        <div class="creadits_players_container">
-            <div class="col-sm-12 col-xs-12 display_space-around">
-                <div class="creadits_players">
-                    <div>CREDITS</div>
-                    <div>{{credit}}/100</div>
-                </div>
-                <div style="display: flex;">
-                    <div><img [src]="currentMatch.team1pic" alt={{currentMatch.team1}} style="width: 9rem;" /></div>
-                    <div class="team_player">
-                        <div class="team_player_sub">{{team1Player}}</div>
-                    </div>
-                    <div class="team_player_div">
-                        <div class="team_player_div_sub"></div>
-                    </div>
-                    <div class="team_player">
-                        <div class="team_player_sub">{{team2Player}}</div>
-                    </div>
-                    <div><img [src]="currentMatch.team2pic" alt={{currentMatch.team2}} style="width: 9rem;" /></div>
-                </div>
-                <div class="creadits_players">
-                    <div>PLAYERS</div>
-                    <div>{{team.length}}/11</div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xs-12" style="text-align: center;color: rgb(11, 29, 131); ">Max 7 players
-                from a Team</div>
-        </div>
-
-        <div class="col-sm-12 col-xs-12"
-            style="text-align: center;color: white;display: flex;justify-content: space-around;padding: 0rem 4rem;">
-            <div class="layerMenu">
-                <div class="selected_player" (click)="getWicketKeepers()">WK</div>
-                <div class="selected_no" (click)="getWicketKeepers()">{{wk}}</div>
-            </div>
-            <div class="layerMenu">
-                <div class="selected_player" (click)="getBatsmen()">BAT</div>
-                <div class="selected_no" (click)="getWicketKeepers()">{{bat}}</div>
-            </div>
-            <div class="layerMenu">
-                <div class="selected_player" (click)="getAllrounders()">ALL</div>
-                <div class="selected_no" (click)="getWicketKeepers()">{{ar}}</div>
-            </div>
-            <div class="layerMenu">
-                <div class="selected_player" (click)="getBowlers()">BALL</div>
-                <div class="selected_no" (click)="getWicketKeepers()">{{ball}}</div>
+            <div class="timer" style="color: white;">
+                <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
+                    end={{currentMatch.matchTimeinSec}}>
+                </countdown>
+                <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
             </div>
         </div>
+        <div class="col-sm-3 col-xs-3"></div>
+    </div>
 
-        <div class="col-sm-12 col-xs-12" style="text-align: center; padding: 1rem;">
-            <div class="matchMenu" style="background-color: transparent;">{{instruction}}</div>
-        </div>
-
-        <div *ngIf="playerList" style="padding: 0rem 1rem">
-            <div style="padding: 1%;">
-                <div class="col-sm-12 col-xs-12"
-                    style="border-radius: 5px; background-image: linear-gradient(rgb(128, 192, 245),rgb(232, 237, 240));">
-                    <div class="col-sm-6 col-xs-6" style="padding: 0%; font-size: smaller;">Player's Name</div>
-                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Points</div>
-                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Credits</div>
-                    <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Action</div>
-                </div>
+    <div class="creadits_players_container">
+        <div class="col-sm-12 col-xs-12 display_space-around">
+            <div class="creadits_players">
+                <div>CREDITS</div>
+                <div>{{credit}}/100</div>
             </div>
-            <div class="scroll">
-                <div class="col-sm-12 col-xs-12 grid" *ngFor="let player of playerList">
-                    <div class="col-sm-6 col-xs-6 grid_scroll">{{player.displayName}}<span
-                            style="font-size: smaller;">({{player.nationality}})</span></div>
-                    <div class="col-sm-2 col-xs-2">{{player.point}}</div>
-                    <div class="col-sm-2 col-xs-2">{{player.price}}</div>
-                    <div *ngIf="!player.selected" class="col-sm-2 col-xs-2" (click)="addPlayers(player.id)"
-                        style="color: rgb(19, 245, 38); cursor: pointer;">
-                        <mat-icon>add</mat-icon>
-                    </div>
-                    <div *ngIf="player.selected" class="col-sm-2 col-xs-2" (click)="removePlayers(player.id)"
-                        style="color: rgb(240, 25, 25);cursor: pointer;">
-                        <mat-icon>remove</mat-icon>
-                    </div>
+            <div style="display: flex;">
+                <div><img [src]="currentMatch.team1pic" alt={{currentMatch.team1}} style="width: 9rem;" /></div>
+                <div class="team_player">
+                    <div class="team_player_sub">{{team1Player}}</div>
                 </div>
+                <div class="team_player_div">
+                    <div class="team_player_div_sub"></div>
+                </div>
+                <div class="team_player">
+                    <div class="team_player_sub">{{team2Player}}</div>
+                </div>
+                <div><img [src]="currentMatch.team2pic" alt={{currentMatch.team2}} style="width: 9rem;" /></div>
+            </div>
+            <div class="creadits_players">
+                <div>PLAYERS</div>
+                <div>{{team.length}}/11</div>
             </div>
         </div>
-        <div class="col-sm-12 col-xs-12 display_center" style="margin-bottom: 1rem;">
-            <div class="buttons" (click)="preview()">PREVIEW</div>
-            <div class="buttons" (click)="next()">NEXT</div>
+        <div class="col-sm-12 col-xs-12" style="text-align: center;color: rgb(11, 29, 131); ">Max 7 players
+            from a Team</div>
+    </div>
+
+    <div class="col-sm-12 col-xs-12"
+        style="text-align: center;color: white;display: flex;justify-content: space-around;padding: 0rem 4rem;">
+        <div class="layerMenu">
+            <div class="selected_player" (click)="getWicketKeepers()">WK</div>
+            <div class="selected_no" (click)="getWicketKeepers()">{{wk}}</div>
+        </div>
+        <div class="layerMenu">
+            <div class="selected_player" (click)="getBatsmen()">BAT</div>
+            <div class="selected_no" (click)="getWicketKeepers()">{{bat}}</div>
+        </div>
+        <div class="layerMenu">
+            <div class="selected_player" (click)="getAllrounders()">ALL</div>
+            <div class="selected_no" (click)="getWicketKeepers()">{{ar}}</div>
+        </div>
+        <div class="layerMenu">
+            <div class="selected_player" (click)="getBowlers()">BALL</div>
+            <div class="selected_no" (click)="getWicketKeepers()">{{ball}}</div>
         </div>
     </div>
-    <!-- <div class="footer_container">
-        <app-footer></app-footer>
+
+    <div class="col-sm-12 col-xs-12" style="text-align: center; padding: 1rem;">
+        <div class="matchMenu" style="background-color: transparent;">{{instruction}}</div>
     </div>
-</div> -->
+
+    <div *ngIf="playerList" style="padding: 0rem 1rem">
+        <div style="padding: 1%;">
+            <div class="col-sm-12 col-xs-12"
+                style="border-radius: 5px; background-image: linear-gradient(rgb(128, 192, 245),rgb(232, 237, 240));">
+                <div class="col-sm-6 col-xs-6" style="padding: 0%; font-size: smaller;">Player's Name</div>
+                <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Points</div>
+                <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Credits</div>
+                <div class="col-sm-2 col-xs-2" style="padding: 0%; font-size: smaller;">Action</div>
+            </div>
+        </div>
+        <div class="scroll">
+            <div class="col-sm-12 col-xs-12 grid" *ngFor="let player of playerList">
+                <div class="col-sm-6 col-xs-6 grid_scroll">{{player.displayName}}<span
+                        style="font-size: smaller;">({{player.nationality}})</span></div>
+                <div class="col-sm-2 col-xs-2">{{player.point}}</div>
+                <div class="col-sm-2 col-xs-2">{{player.price}}</div>
+                <div *ngIf="!player.selected" class="col-sm-2 col-xs-2" (click)="addPlayers(player.id)"
+                    style="color: rgb(19, 245, 38); cursor: pointer;">
+                    <mat-icon>add</mat-icon>
+                </div>
+                <div *ngIf="player.selected" class="col-sm-2 col-xs-2" (click)="removePlayers(player.id)"
+                    style="color: rgb(240, 25, 25);cursor: pointer;">
+                    <mat-icon>remove</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12 display_center" style="margin-bottom: 1rem;">
+        <div class="buttons" (click)="preview()">PREVIEW</div>
+        <div class="buttons" (click)="next()">NEXT</div>
+    </div>
+</div>
