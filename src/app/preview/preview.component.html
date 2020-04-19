@@ -1,13 +1,15 @@
-<div class="gameplay">
-  <div class="col-sm-12 header_icon">
-    <img src="./assets/LOGO2.png" />
-  </div>
+<!-- <div class="display_container gameplay">
+  <div class="col-sm-12 col-xs-12 header_container">
+    <app-header></app-header>
+  </div> -->
 
-  <div class="previewBack">
+  <div class="col-sm-12 previewBack">
     <!-- <div class="col-sm-12 col-xs-12"> -->
-        <div class="matchMenu" (click)="back()"><mat-icon>keyboard_return</mat-icon></div>
+    <div class="matchMenu" (click)="back()">
+      <mat-icon>keyboard_return</mat-icon>
+    </div>
     <!-- </div> -->
-  
+
     <div *ngIf="wk" class="previewLevel">
       <div *ngIf="wk.length==1" style="padding: 0%;">
         <div *ngFor="let player of wk" style="padding: 10%; text-align: center;">
@@ -24,7 +26,7 @@
         <div class="col-sm-1" style="width: 100%;"></div>
       </div>
     </div>
-    
+
     <div class="col-sm-12 levelTag" style="padding: 0.5rem;">WICKET KEEPER</div>
     <div *ngIf="bat" class="previewLevel">
       <div *ngIf="bat.length==3">
@@ -50,7 +52,7 @@
         <div class="col-sm-1"></div>
       </div>
     </div>
-    <div class="col-sm-12 levelTag" >BATSMEN</div>
+    <div class="col-sm-12 levelTag">BATSMEN</div>
 
     <div *ngIf="ar" class="previewLevel">
       <div *ngIf="ar.length==1" style="padding: 0%;">
@@ -82,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 levelTag" >ALLROUNDERS</div>
+    <div class="col-sm-12 levelTag">ALLROUNDERS</div>
 
     <div *ngIf="ball" class="previewLevel">
       <div *ngIf="ball.length==3">
@@ -108,8 +110,10 @@
         <div class="col-sm-1"></div>
       </div>
     </div>
-    <div class="col-sm-12 levelTag" >BOWLERS</div>
+    <div class="col-sm-12 levelTag">BOWLERS</div>
   </div>
 
-  <app-footer></app-footer>
-</div>
+  <!-- <div class="col-sm-12 col-xs-12 footer_container">
+    <app-footer></app-footer>
+  </div>
+</div> -->

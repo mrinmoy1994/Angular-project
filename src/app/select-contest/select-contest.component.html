@@ -1,7 +1,7 @@
-<div class="gameplay">
-  <div class="col-sm-12 col-xs-12 header_icon">
-    <img src="./assets/LOGO2.png" />
-  </div>
+<!-- <div class="display_container gameplay">
+  <div class="col-sm-12 col-xs-12 header_container">
+    <app-header></app-header>
+  </div> -->
 
   <div style="max-height: 80vh;">
 
@@ -36,7 +36,7 @@
     <div class="col-sm-12 col-xs-12 " *ngIf="map" style="max-height: 100vh;">
       <div class="grid_scroll">
 
-        <div *ngFor="let recipient of map | keyvalue" >
+        <div *ngFor="let recipient of map | keyvalue">
           <div class="col-sm-12 col-xs-12 league" style="height: 14vh;" (click)="onContestClick(recipient.key)">
             <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 2%;">
               <div class="font_color">TYPE {{recipient.key}}</div>
@@ -60,8 +60,8 @@
   </div>
 
 
-  <div>
+  <!-- <div class="col-sm-12 col-xs-12 footer_container">
     <app-footer></app-footer>
   </div>
 
-</div>
+</div> -->

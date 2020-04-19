@@ -20,6 +20,7 @@ import { PreviewComponent } from './preview/preview.component';
 import { ButtonComponent } from './common/button/button.component';
 import { SelectContestComponent } from './select-contest/select-contest.component';
 import { OpenContestComponent } from './open-contest/open-contest.component';
+import { HeaderComponent } from './common/header/header.component';
 
 @NgModule({
   imports:      [ 
@@ -32,7 +33,7 @@ import { OpenContestComponent } from './open-contest/open-contest.component';
     BrowserAnimationsModule,
     CountdownModule
   ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent, ButtonComponent, SelectContestComponent, OpenContestComponent ],
+  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent,GeneralHomeComponent, CreateTeamComponent, ChooseCaptainComponent, ShowTeamsComponent, FooterComponent, PreviewComponent, ButtonComponent, SelectContestComponent, OpenContestComponent, HeaderComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

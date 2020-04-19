@@ -1,41 +1,43 @@
-<div class="gameplay">
-  <div class="col-sm-12 col-xs-12 header_icon">
-    <img src="./assets/LOGO2.png" />
-  </div>
+<!-- <div class="display_container gameplay">
+  <div class="col-sm-12 col-xs-12 header_container">
+    <app-header></app-header>
+  </div> -->
 
   <div class="col-sm-12 col-xs-12 " *ngIf="matches" style="max-height: 100vh;">
     <div class="scroll">
-    <div *ngFor="let match of matches">
-      <div class="col-sm-12 col-xs-12 league">
-        <div class="col-sm-12 col-xs-12 display_space-around">
-          <div class="font_color">{{match.totalLeagues}} Leagues</div>
-          <div class="font_color">Total Winning ammout Rs.{{match.totalMoney}}/-</div>
-          <!-- <div class="col-sm-4 col-xs-5 text_align_left"><span class="font_color">{{match.totalLeagues}} Leagues</span>
+      <div *ngFor="let match of matches">
+        <div class="col-sm-12 col-xs-12 league">
+          <div class="col-sm-12 col-xs-12 display_space-around">
+            <div class="font_color">{{match.totalLeagues}} Leagues</div>
+            <div class="font_color">Total Winning ammout Rs.{{match.totalMoney}}/-</div>
+            <!-- <div class="col-sm-4 col-xs-5 text_align_left"><span class="font_color">{{match.totalLeagues}} Leagues</span>
           </div>
           <div class="col-sm-8 col-xs-7 text_align_right"><span class="font_color"> Total Winning ammout Rs.
               {{match.totalMoney}}/- </span></div> -->
-        </div>
-        <div class="col-sm-12 col-xs-12 display_center">
-          <div class="col-sm-3 col-xs-3 country_image_container"><img [src]="match.team1pic" alt={{match.team1}} class="country_image" /></div>
-          <div class="col-sm-6 col-xs-6">
-            <div class="team">{{match.team1}} vs {{match.team2}} </div>
-            <div class="starts_in">STARTS IN </div>
-
-            <div class="timer">
-              <countdown [text]="text" units="Days | Hours | Minutes | Seconds" end={{match.matchTimeinSec}}>
-              </countdown>
-              <div class="timer_text">DD : HH : MM : SS </div>
-            </div>
-
           </div>
-          <div class="col-sm-3 col-xs-3 country_image_container"><img [src]="match.team2pic" alt={{match.team2}} class="country_image" /></div>
-        </div>
+          <div class="col-sm-12 col-xs-12 display_center">
+            <div class="col-sm-3 col-xs-3 country_image_container"><img [src]="match.team1pic" alt={{match.team1}}
+                class="country_image" /></div>
+            <div class="col-sm-6 col-xs-6">
+              <div class="team">{{match.team1}} vs {{match.team2}} </div>
+              <div class="starts_in">STARTS IN </div>
 
-        <div class="col-sm-12 col-xs-12 display_center">
-          <div class="buttons" (click)="onCreateTeamClick(match.id)">Create Team</div>
-          <div class="buttons" (click)="selectContest(match.id)">Join Tournament</div>
-          <div class="buttons" (click)="onShowTeamsClick(match.id)">My teams</div>
-          <!-- <div class="col-sm-4 col-xs-4 display_content">
+              <div class="timer">
+                <countdown [text]="text" units="Days | Hours | Minutes | Seconds" end={{match.matchTimeinSec}}>
+                </countdown>
+                <div class="timer_text">DD : HH : MM : SS </div>
+              </div>
+
+            </div>
+            <div class="col-sm-3 col-xs-3 country_image_container"><img [src]="match.team2pic" alt={{match.team2}}
+                class="country_image" /></div>
+          </div>
+
+          <div class="col-sm-12 col-xs-12 display_center">
+            <div class="buttons" (click)="onCreateTeamClick(match.id)">Create Team</div>
+            <div class="buttons" (click)="selectContest(match.id)">Join Tournament</div>
+            <div class="buttons" (click)="onShowTeamsClick(match.id)">My teams</div>
+            <!-- <div class="col-sm-4 col-xs-4 display_content">
             <div class="buttons">Create Team</div>
           </div>
           <div class="col-sm-4 col-xs-4 display_content">
@@ -44,12 +46,10 @@
           <div class="col-sm-4 col-xs-4 display_content" >
             <div class="buttons">My team</div>
           </div> -->
+          </div>
         </div>
       </div>
     </div>
-</div>
   </div>
-  <div>
-    <app-footer></app-footer>
-  </div>
-</div>
+
+<!-- </div> -->

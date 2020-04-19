@@ -9,7 +9,7 @@
 }
 .gameplay{
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     border-color: white; 
     border-width: 2px; 
     border-style: solid; 
@@ -18,17 +18,7 @@
     // height: 40vmax; 
     padding: 0%;
     margin: 0%; 
-    text-align: center;
-    .header_icon {
-        text-align: center; 
-        background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); 
-        padding: 0.5rem;
-        color: white; 
-        border-radius: 5px 5px 0px 0px;
-        img {
-            width: 8rem;        
-        }
-    }   
+    text-align: center; 
     .team {
         padding-top: 1rem;
         font-weight: bolder; 

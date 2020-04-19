@@ -1,9 +1,9 @@
-<div class="gameplay">
-    <div class="col-sm-12 col-xs-12 header_icon">
-        <img src="./assets/LOGO2.png" />
-    </div>
+<!-- <div class="display_container gameplay">
+    <div class="col-sm-12 col-xs-12 header_container">
+        <app-header></app-header>
+    </div> -->
 
-    <div class="display_column" style="max-height: 70vh;">
+    <div class="display_column">
 
         <div class="col-sm-12 col-xs-12" style="color: white;">
             <div class="col-sm-3 col-xs-3"></div>
@@ -29,9 +29,15 @@
                 </div>
                 <div style="display: flex;">
                     <div><img [src]="currentMatch.team1pic" alt={{currentMatch.team1}} style="width: 9rem;" /></div>
-                    <div class="team_player"><div class="team_player_sub">{{team1Player}}</div></div>
-                    <div class="team_player_div"><div class="team_player_div_sub"></div></div>
-                    <div class="team_player"><div class="team_player_sub">{{team2Player}}</div></div>
+                    <div class="team_player">
+                        <div class="team_player_sub">{{team1Player}}</div>
+                    </div>
+                    <div class="team_player_div">
+                        <div class="team_player_div_sub"></div>
+                    </div>
+                    <div class="team_player">
+                        <div class="team_player_sub">{{team2Player}}</div>
+                    </div>
                     <div><img [src]="currentMatch.team2pic" alt={{currentMatch.team2}} style="width: 9rem;" /></div>
                 </div>
                 <div class="creadits_players">
@@ -45,7 +51,7 @@
 
         <div class="col-sm-12 col-xs-12"
             style="text-align: center;color: white;display: flex;justify-content: space-around;padding: 0rem 4rem;">
-            <div class="layerMenu" >
+            <div class="layerMenu">
                 <div class="selected_player" (click)="getWicketKeepers()">WK</div>
                 <div class="selected_no" (click)="getWicketKeepers()">{{wk}}</div>
             </div>
@@ -79,7 +85,8 @@
             </div>
             <div class="scroll">
                 <div class="col-sm-12 col-xs-12 grid" *ngFor="let player of playerList">
-                    <div class="col-sm-6 col-xs-6 grid_scroll">{{player.displayName}}<span style="font-size: smaller;">({{player.nationality}})</span></div>
+                    <div class="col-sm-6 col-xs-6 grid_scroll">{{player.displayName}}<span
+                            style="font-size: smaller;">({{player.nationality}})</span></div>
                     <div class="col-sm-2 col-xs-2">{{player.point}}</div>
                     <div class="col-sm-2 col-xs-2">{{player.price}}</div>
                     <div *ngIf="!player.selected" class="col-sm-2 col-xs-2" (click)="addPlayers(player.id)"
@@ -98,7 +105,7 @@
             <div class="buttons" (click)="next()">NEXT</div>
         </div>
     </div>
-    <div>
+    <!-- <div class="footer_container">
         <app-footer></app-footer>
     </div>
-</div>
+</div> -->

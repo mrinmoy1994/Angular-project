@@ -1,0 +1,12 @@
+.header_icon {
+    background-image:linear-gradient(rgb(12, 14, 136),rgb(46, 59, 131)); 
+    padding: 0.5rem;
+    color: white; 
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 10rem;        
+    }
+}
