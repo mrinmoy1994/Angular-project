@@ -11,6 +11,7 @@ export class UtilityService {
     private _matches : match[];
     private _currentMatch : match;
     private _contests : contest[];
+    private _currentContests : contest;
     private _currentTeam : player[];
     private _credit : number;
     private _team1PlayerCount : number;
@@ -22,6 +23,21 @@ export class UtilityService {
     private _editableTeamId : number;
     private _backPage : any;
     private _contestType : any;
+    private _participantTeams : any;
+
+    public get participantTeams() {
+      return this._participantTeams;
+    }
+    public set participantTeams(teams) {
+      this._participantTeams = teams;
+    }
+
+    public get currentContests() {
+      return this._currentContests;
+    }
+    public set currentContests(contest) {
+      this._currentContests = contest;
+    }
 
     public get contestType() {
       return this._contestType;

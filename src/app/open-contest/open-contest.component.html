@@ -3,38 +3,79 @@
         <app-header></app-header>
     </div> -->
 
-    <div style="max-height: 70vh;">
+<div style="max-height: 70vh;">
 
-        <div class="col-sm-12 col-xs-12" style="color: white;">
-            <div class="col-sm-3 col-xs-3"></div>
-            <div class="col-sm-6 col-xs-6">
-                <div style="padding-top: 0%; width: 100%;"></div>
+    <div class="col-sm-12 col-xs-12" style="color: white;">
+        <div class="col-sm-3 col-xs-3"></div>
+        <div class="col-sm-6 col-xs-6">
+            <div style="padding-top: 0%; width: 100%;"></div>
 
 
-                <div class="timer" style="color: white;">
-                    STARTS IN
-                </div>
+            <div class="timer" style="color: white;">
+                STARTS IN
             </div>
-            <div class="col-sm-3 col-xs-3"></div>
         </div>
+        <div class="col-sm-3 col-xs-3"></div>
+    </div>
 
-        <div class="col-sm-12 col-xs-12" style="color: white;">
-            <div class="col-sm-3 col-xs-3"></div>
-            <div class="col-sm-6 col-xs-6">
-                <div style="padding-top: 0%; width: 100%;"></div>
+    <div class="col-sm-12 col-xs-12" style="color: white;">
+        <div class="col-sm-3 col-xs-3"></div>
+        <div class="col-sm-6 col-xs-6">
+            <div style="padding-top: 0%; width: 100%;"></div>
 
 
-                <div class="timer" style="color: white;">
-                    <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
-                        end={{currentMatch.matchTimeinSec}}>
-                    </countdown>
-                    <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
+            <div class="timer" style="color: white;">
+                <countdown style="color: white;" [text]="text" units="Days | Hours | Minutes | Seconds"
+                    end={{currentMatch.matchTimeinSec}}>
+                </countdown>
+                <div class="timer_text" style="color: white;">DD : HH : MM : SS </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-3"></div>
+    </div>
+
+    <div class="col-sm-12 col-xs-12 " *ngIf="currentContests" style="max-height: 100vh;">
+        <div class="grid_scroll">
+
+            <div *ngFor="let recipient of currentContests" style="text-align: center;">
+                <div class="col-sm-12 col-xs-12 league" style="height: 22vh;">
+                    <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 2%;">
+                        <div class="col-sm-1 col-xs-1 font_color circleBorder">{{recipient.type}}</div>
+                        <div class="col-sm-1 col-xs-1 font_color"></div>
+                        <div class="col-sm-8 col-xs-8 font_color" style="text-align: center;">
+                            <div class="col-sm-12 col-xs-12">Winning amoung : Rs. {{recipient.totalPrize}}/-</div>
+                            <div class="col-sm-12 col-xs-12">Entry Fee : Rs. {{recipient.entryFee}}/-</div>
+                        </div>
+                        <div class="col-sm-1 col-xs-1 font_color"></div>
+                        <div class="col-sm-1 col-xs-1 font_color"></div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 display_space-around" style="padding: 0;">
+                        <div style="width: 100vw;padding: 0;">
+                            <progress-bar [progress]="recipient.currentParticipants/recipient.participants"
+                                [color]="'#488aff'"></progress-bar>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 display_space-around" style="padding:0;">
+                        <div>No. of Participating Captains: {{recipient.currentParticipants}}/{{recipient.participants}}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-xs-12 display_center">
+                        <div class="buttons" (click)=showTeams(recipient)>Show Teams</div>
+                        <div class="buttons" (click)="join(recipient)">Join </div>
+                        <div class="buttons" (click)="openbreakupmodal()">Winning Breakup</div>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-3"></div>
+
         </div>
     </div>
-    <!-- <div class="col-sm-12 col-xs-12 footer_container">
+    <app-breakup-modal *ngIf="showbreakupmodal" (closeModal)="closebreakupmodal()">
+        <!-- <button (click) ="closeModal()">close</button> -->
+    </app-breakup-modal>
+</div>
+<!-- <div class="col-sm-12 col-xs-12 footer_container">
         <app-footer></app-footer>
     </div>
 </div> -->

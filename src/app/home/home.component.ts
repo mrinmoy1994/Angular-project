@@ -198,18 +198,14 @@ export class HomeComponent implements OnInit {
           (data) => {
             let teams = data.data as Team[];
             if (teams.length < 5) {
-              this.service.getContestData(match.id).subscribe(
-                (data) => {
-                  console.log(data);
-                  const contests = data.data as contest[];
+              
+              let contestData = this.getCurrentMatchContests(matchId);
+                  console.log(contestData);
+                  const contests = contestData;
                   this.saveData(match, contests);
                   this.util.editTeam = false;
                   this.router.navigateByUrl('/createTeam');
-                },
-                (error) => {
-                  console.log(error);
-                }
-              );
+               
             } else {
               window.alert('You can not create more than 5 teams for a match.');
               return;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UrlConfiguration, match, contest, player } from './../core/url-configuration';
+import { UrlConfiguration, match, contest, player, Team } from './../core/url-configuration';
 import { UtilityService } from './../core/utility.service';
-import { CreateteamService } from './../create-team/createteam.service';
+import { OpenContestService } from './open-contest.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,8 @@ export class OpenContestComponent implements OnInit {
   currentMatch: match;
   contests : contest[];
   currentContests : contest[]=[];
-  constructor( private router: Router, private util : UtilityService, private service : CreateteamService ) { 
+  showbreakupmodal: boolean = false;
+  constructor( private router: Router, private util : UtilityService, private service : OpenContestService ) { 
   }
 
   ngOnInit(): void {
@@ -36,11 +37,44 @@ export class OpenContestComponent implements OnInit {
     if(this.contests)
     {
       for(let contest of this.contests){
-        if(contest.matchId == this.currentMatch.id){
+        if(contest.matchId == this.currentMatch.id && contest.type.charAt(0) == this.util.contestType){
           this.currentContests.push(contest);
         }
       }
     }
     console.log(this.currentContests);
   }
+
+  openbreakupmodal(){
+    this.showbreakupmodal = true;
+  }
+
+  closebreakupmodal() {
+    //console.log(event);
+    this.showbreakupmodal = false;
+  }
+
+  save(contest){
+    this.service.getTeamsData(contest.matchId).subscribe(
+      data => {
+        console.log(data);
+        this.util.participantTeams = data.data as Team[];
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  join(contest){
+    this.util.currentContests = contest;
+    this.save(contest);
+    this.router.navigateByUrl("/join");
+  }
+
+  showTeams(contest){
+      this.util.currentContests = contest;
+      console.log(this.util.currentContests);
+      this.save(contest);
+      this.router.navigateByUrl("/participants");
+    }
 }
