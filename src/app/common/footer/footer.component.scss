@@ -1,6 +1,8 @@
 .bottomMenu{
-    text-align: center; top: 10%;font-size: xx-small;padding: 0%;
+    text-align: center;
+    font-size: xx-small;
     cursor: pointer;
+    width: 7rem;
 }
 
 .bottomMenu:hover {
@@ -8,15 +10,15 @@
     color: white;
 
   }
-  .footer-container {
-    position: sticky;
+  .footer-gameplay {
+    // position: sticky;
     font-weight: bold; 
     text-align: center;
-    // top: 86%;
-    text-align: left;
-    height: 5rem; 
+    // height: 5rem; 
     background-image:linear-gradient(rgba(83, 83, 247, 0.986),rgb(7, 7, 112, 0.884)); 
     padding: 0%; 
     color: white; 
     border-radius: 0px 0px 5px 5px;
+    display: flex;
+    justify-content: space-around;
   }

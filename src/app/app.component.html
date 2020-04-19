@@ -1,7 +1,15 @@
 <div class="col-sm-12 background-image">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 content">
-                <router-outlet></router-outlet>
+                <div class="display_container gameplay">
+                        <div class="col-sm-12 col-xs-12 header_container">
+                          <app-header></app-header>
+                        </div>
+                        <router-outlet></router-outlet>
+                        <div class="col-sm-12 col-xs-12 footer_container">
+                                <app-footer></app-footer>
+                        </div>
+                </div>
         </div>
         <div class="col-sm-4"></div>
 </div>
