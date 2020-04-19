@@ -1,14 +1,14 @@
 <div class="col-sm-12 background-image">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 content">
-                <div class="display_container gameplay">
-                        <div class="col-sm-12 col-xs-12 header_container">
+                <div class="display_container gameplay" [ngClass]="{'gameplay':isheaderFooterNeeded}">
+                        <div *ngIf="isheaderFooterNeeded" class="col-sm-12 col-xs-12 header_container">
                                 <app-header></app-header>
                         </div>
-                        <div class="col-sm-12 col-xs-12" style="min-height: calc(85vh - 10rem); padding: 0;">
+                        <div class="col-sm-12 col-xs-12" [ngClass]="{'router-height':isheaderFooterNeeded}">
                                 <router-outlet></router-outlet>
                         </div>
-                        <div class="col-sm-12 col-xs-12 footer_container">
+                        <div *ngIf="isheaderFooterNeeded" class="col-sm-12 col-xs-12 footer_container">
                                 <app-footer></app-footer>
                         </div>
                 </div>

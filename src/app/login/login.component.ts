@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UtilityService } from '../core/utility.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,12 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   statusCode: any;
 
-  constructor(private router: Router, private service: LoginService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private service: LoginService, private formBuilder: FormBuilder, private utility: UtilityService) { 
+        this.utility.isHeaderFooterNeeded.next(false);
+  }
 
   ngOnInit() {
+    this.utility.isHeaderFooterNeeded.next(false);
     if(localStorage.getItem("token"))
       this.router.navigateByUrl("/home");
     this.loginForm = this.formBuilder.group({

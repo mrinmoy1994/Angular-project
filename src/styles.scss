@@ -14,7 +14,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 
         padding: 0%;
     }
 }
-
+.display_middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .display_center {
     display: flex;
     flex-direction: row;

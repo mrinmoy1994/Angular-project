@@ -18,7 +18,7 @@ export class PreviewComponent implements OnInit {
   ball : player[] = [];
 
   constructor(private util : UtilityService, private router : Router) {
-    
+    this.util.isHeaderFooterNeeded.next(true);
    }
 
   ngOnInit(): void {

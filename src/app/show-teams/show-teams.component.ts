@@ -21,6 +21,7 @@ export class ShowTeamsComponent implements OnInit {
   currentMatch: match = null;
   teams : any[] = [];
   constructor( private router: Router, private util : UtilityService, private service : ShowTeamsService) { 
+    this.util.isHeaderFooterNeeded.next(true);
     console.log('Called Constructor');
     if(!this.util.currentMatch){
       this.router.navigateByUrl("/home");
