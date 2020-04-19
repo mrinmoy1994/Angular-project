@@ -3,9 +3,11 @@
         <div class="col-sm-4 content">
                 <div class="display_container gameplay">
                         <div class="col-sm-12 col-xs-12 header_container">
-                          <app-header></app-header>
+                                <app-header></app-header>
                         </div>
-                        <router-outlet></router-outlet>
+                        <div class="col-sm-12 col-xs-12" style="min-height: calc(85vh - 10rem); padding: 0;">
+                                <router-outlet></router-outlet>
+                        </div>
                         <div class="col-sm-12 col-xs-12 footer_container">
                                 <app-footer></app-footer>
                         </div>
