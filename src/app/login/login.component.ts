@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.utility.isHeaderFooterNeeded.next(false);
-    if(localStorage.getItem("token"))
-      this.router.navigateByUrl("/home");
+    // if(localStorage.getItem("token"))
+    //   this.router.navigateByUrl("/home");
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
