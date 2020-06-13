@@ -101,6 +101,7 @@ p{
     background-position: center;
     background-size: 35vw 77vh;
     min-height: calc(85vh - 10rem); padding: 0;
+    overflow: hidden;
 }
 
 .previewLevel-wk{
@@ -116,5 +117,5 @@ p{
 }
 
 .levelTag{
-    padding:3%; font-weight: bold; font-size: medium;
+    padding:1.2rem; font-weight: bold; font-size: medium;
 }

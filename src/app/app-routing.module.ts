@@ -12,22 +12,21 @@ import { SelectContestComponent } from './select-contest/select-contest.componen
 import { OpenContestComponent} from './open-contest/open-contest.component';
 import { ParticipantsComponent} from './participants/participants.component';
 import { JoinComponent} from './join/join.component';
-import { AuthenticateGuard } from './authenticate.guard';
 
 
 const routes: Routes = [
-  
-  { path: 'generalHome', component: GeneralHomeComponent, canActivate: [AuthenticateGuard]},
-  { path: 'home', component: HomeComponent, canActivate: [AuthenticateGuard]},
-  { path: 'hello', component: HelloComponent, canActivate: [AuthenticateGuard]},
+  { path: 'generalHome', component: GeneralHomeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'hello', component: HelloComponent },
   { path: 'login', component : LoginComponent},
-  { path: 'createTeam', component : CreateTeamComponent, canActivate: [AuthenticateGuard]},
-  { path: 'chooseCaptain', component : ChooseCaptainComponent, canActivate: [AuthenticateGuard]},
-  { path: 'showTeam', component : ShowTeamsComponent, canActivate: [AuthenticateGuard]},
-  { path: 'preview', component : PreviewComponent, canActivate: [AuthenticateGuard]},
-  { path: 'selectContest', component : SelectContestComponent, canActivate: [AuthenticateGuard]},
-  { path: 'openContest', component : OpenContestComponent, canActivate: [AuthenticateGuard]},
-  { path: 'participants', component : ParticipantsComponent, canActivate: [AuthenticateGuard]},
+  { path: 'createTeam', component : CreateTeamComponent},
+  { path: 'chooseCaptain', component : ChooseCaptainComponent},
+  { path: 'showTeam', component : ShowTeamsComponent},
+  { path: 'preview', component : PreviewComponent},
+  { path: 'selectContest', component : SelectContestComponent},
+  { path: 'openContest', component : OpenContestComponent},
+  { path: 'participants', component : ParticipantsComponent},
   { path: 'join', component : JoinComponent}
 ];
 

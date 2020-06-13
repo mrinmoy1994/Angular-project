@@ -158,6 +158,7 @@ export class ChooseCaptainComponent implements OnInit {
 
     }
 
+    new Promise( resolve => setTimeout(resolve, 2000));
     this.router.navigateByUrl('/showTeam');
   }
 
