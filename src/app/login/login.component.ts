@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   statusCode: any;
 
-  constructor(private router: Router, private service: LoginService, private formBuilder: FormBuilder, private utility: UtilityService) { 
+  constructor(private router: Router, private service: LoginService, private formBuilder: FormBuilder, private utility: UtilityService) {
         this.utility.isHeaderFooterNeeded.next(false);
   }
 
@@ -38,24 +38,24 @@ export class LoginComponent implements OnInit {
     };
     console.log(data);
     this.service.getLoginToken({
-      cred:btoa(data.name+":"+data.password)})
+      cred: btoa(data.name +':'+ data.password)})
       .subscribe(
         res => {
            console.log(res);
           // console.log(btoa(data.name+":"+data.password))
-          this.statusCode = res.status;
-          if(this.statusCode === 200 || this.statusCode === 201)
+           this.statusCode = res.status;
+           if (this.statusCode === 200 || this.statusCode === 201)
             {
-              localStorage.setItem("token",res.props.token);
-              localStorage.setItem("userName",data.name);
+              localStorage.setItem('token', res.props.token);
+              localStorage.setItem('userName', data.name);
               console.log(this.statusCode);
-              console.log(localStorage.getItem("userName"));
-              this.router.navigateByUrl("/home");
+              console.log(localStorage.getItem('userName'));
+              this.router.navigateByUrl('/home');
             }
-          //this.router.navigate([this.returnUrl]);
+          // this.router.navigate([this.returnUrl]);
         },
         error => {
-          console.log(error)
+          console.log(error);
         });
        // debugger
       // if(this.statusCode == 200 || this.statusCode == 201)
