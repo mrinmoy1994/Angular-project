@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      this.router.navigateByUrl('/home');
-    }
+    this.utility.isHeaderFooterNeeded.next(false);
+    // if(localStorage.getItem("token"))
+    //   this.router.navigateByUrl("/home");
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     };
     console.log(data);
     this.service.getLoginToken({
-      cred: btoa(data.name + ':' + data.password)})
+      cred: btoa(data.name +':'+ data.password)})
       .subscribe(
         res => {
            console.log(res);

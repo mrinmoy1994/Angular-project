@@ -23,3 +23,6 @@ p {
     margin: 0%; 
     text-align: center; 
 }
+.router-height {
+    min-height: calc(85vh - 10rem); padding: 0;
+}

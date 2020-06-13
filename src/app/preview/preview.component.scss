@@ -80,7 +80,7 @@ p{
     min-height: 2rem;
     width: 4rem;
     position: absolute;
-    margin-top: 4rem;
+    margin-top: 1rem;
     padding: 0.5rem;
     
 }
@@ -100,6 +100,7 @@ p{
     background-image: url(./../../assets/ground.png);
     background-position: center;
     background-size: 35vw 77vh;
+    min-height: calc(85vh - 10rem); padding: 0;
 }
 
 .previewLevel-wk{

@@ -21,6 +21,7 @@ export class OpenContestComponent implements OnInit {
   currentContests : contest[]=[];
   showbreakupmodal: boolean = false;
   constructor( private router: Router, private util : UtilityService, private service : OpenContestService ) { 
+    this.util.isHeaderFooterNeeded.next(true);
   }
 
   ngOnInit(): void {
