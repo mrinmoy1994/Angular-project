@@ -30,7 +30,6 @@ export class CreateTeamComponent implements OnInit {
   team2Player : number = 0;
   credit : number = 0; 
   constructor( private router: Router, private util : UtilityService, private service : CreateteamService ) { 
-    this.util.isHeaderFooterNeeded.next(true);
   }
 
   ngOnInit(): void {

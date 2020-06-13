@@ -8,7 +8,6 @@ import { match, contest, player } from './url-configuration';
 
 export class UtilityService {
     public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-    public isHeaderFooterNeeded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
     private _matches : match[];
     private _currentMatch : match;
     private _contests : contest[];

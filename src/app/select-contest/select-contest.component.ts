@@ -27,9 +27,7 @@ export class SelectContestComponent implements OnInit {
   constructor(
     private router: Router,
     private util: UtilityService
-  ) {
-    this.util.isHeaderFooterNeeded.next(true);
-  }
+  ) {}
 
   ngOnInit(): void {
     if (!this.util.currentMatch) {

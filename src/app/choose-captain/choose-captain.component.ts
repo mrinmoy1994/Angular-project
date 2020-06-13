@@ -12,18 +12,18 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class ChooseCaptainComponent implements OnInit {
   currentMatch: match;
-  players: player[];
-  instruction: string;
-  playerList: player[] = [];
-  team: player[] = [];
-  wk = 0;
-  bat = 0;
-  ball = 0;
-  ar = 0;
-  team1Player = 0;
-  team2Player = 0;
-  credit = 0;
-  captain: player =
+  players : player[];
+  instruction : string;
+  playerList : player[] = [];
+  team : player[] = [];
+  wk : number = 0;
+  bat : number = 0;
+  ball : number = 0;
+  ar : number = 0;
+  team1Player  : number = 0;
+  team2Player : number = 0;
+  credit : number = 0;
+  captain : player =
   {
     age: 0,
     club: null,
@@ -40,101 +40,91 @@ export class ChooseCaptainComponent implements OnInit {
     selected : false
   } ;
 
-  text: any = {
-    Days: '',
-    Hours: '',
-    Minutes: '',
-    Seconds: ''
-  };
+  text:any = {
+    Days: "",
+    Hours: "",
+    Minutes: "",
+    Seconds: ""
+  }; 
   vicecaptain: player;
-  constructor( private router: Router, private util: UtilityService, private service: ChooseCaptainService ) {
-    this.util.isHeaderFooterNeeded.next(true);
+  constructor( private router: Router, private util : UtilityService, private service : ChooseCaptainService ) { 
   }
 
   ngOnInit(): void {
-    if (!this.util.currentMatch){
-      this.router.navigateByUrl('/createTeam');
+    if(!this.util.currentMatch){
+      this.router.navigateByUrl("/createTeam");
     }
+    
     this.currentMatch = this.util.currentMatch;
 
-    if (this.util.credit && this.util.credit != 0) {
+    if(this.util.credit && this.util.credit != 0)
       this.credit = this.util.credit;
-    }
-    if (this.util.currentTeam && this.util.currentTeam != null) {
+    if(this.util.currentTeam && this.util.currentTeam !=null)
       this.team = this.util.currentTeam;
-    }
-    if (this.util.team1PlayerCount && this.util.team1PlayerCount != 0) {
+    if(this.util.team1PlayerCount && this.util.team1PlayerCount != 0)
       this.team1Player = this.util.team1PlayerCount;
-    }
-    if (this.util.team2PlayerCount && this.util.team2PlayerCount != 0) {
+    if(this.util.team2PlayerCount && this.util.team2PlayerCount != 0)
       this.team2Player = this.util.team2PlayerCount;
-    }
 
-    if (this.util.captain && this.util.captain != null)
+    if(this.util.captain && this.util.captain != null)
      {
-      for (const player of this.team){
-        if (player.name == this.util.captain. name) {
+      for(let player of this.team){
+        if(player.name == this.util.captain. name)
           this.captain =player;
-        }
-        }
+        } 
      }
-
-
-    if (this.util.viceCaptain && this.util.viceCaptain != null)
+      
+        
+    if(this.util.viceCaptain && this.util.viceCaptain != null)
     {
-      for (const player of this.team){
-        if (player.name == this.util.viceCaptain. name) {
+      for(let player of this.team){
+        if(player.name == this.util.viceCaptain. name)
           this.vicecaptain =player;
-        }
-        }
+        } 
      }
-
-    for (const player of this.team){
-      if (player.playerRole == 'WICKETKEEPER') {
+    
+    for(let player of this.team){
+      if(player.playerRole == 'WICKETKEEPER')
         this.wk++;
-      }
-      if (player.playerRole == 'BOWLER') {
+      if(player.playerRole == 'BOWLER')
         this.ball++;
-      }
-      if (player.playerRole == 'BATSMAN') {
+      if(player.playerRole == 'BATSMAN')
         this.bat++;
-      }
-      if (player.playerRole == 'ALLROUNDER') {
+      if(player.playerRole == 'ALLROUNDER')
         this.ar++;
-      }
     }
   }
 
   saveAndNext(){
 
-    if (!this.captain || this.captain == null){
-      window.alert('Please select one captain');
+    if(!this.captain || this.captain==null){
+      window.alert("Please select one captain");
       return;
     }
 
-    if (!this.vicecaptain || this.vicecaptain == null){
-      window.alert('Please select one vicecaptain');
+    if(!this.vicecaptain || this.vicecaptain==null){
+      window.alert("Please select one vicecaptain");
       return;
     }
-    const ids: any[] = [];
-    for (const player of this.team){
+    let ids :any[]=[];
+    for(let player of this.team){
       ids.push(player.id);
     }
 
-    const id = this.util.editableTeamId;
+    let id = this.util.editableTeamId;
     console.log(id);
-    let data: any;
-    data = {
-      id,
-      matchId : this.currentMatch.id,
-      userName : localStorage.getItem('userName'),
-      playerIds : ids,
-      captainId : this.captain.id,
+    let data : any;
+    data = { 
+      id : id,
+      matchId : this.currentMatch.id, 
+      userName : localStorage.getItem("userName"), 
+      playerIds : ids, 
+      captainId : this.captain.id, 
       viceCaptainId : this.vicecaptain.id
    };
 
-	// console.log(localStorage.getItem("userName"));
-    this.util.team1PlayerCount = 0;
+	//console.log(localStorage.getItem("userName"));
+   this.util.team1PlayerCount = 0;
     this.util.team2PlayerCount = 0;
     this.util.currentTeam = null;
     this.util.credit = 0;
@@ -142,41 +132,39 @@ export class ChooseCaptainComponent implements OnInit {
     this.util.editableTeamId = 0;
 
     console.log(this.util.editTeam);
-    if (this.util.editTeam){
+    if(this.util.editTeam){
       console.log(this.util.editTeam);
       this.util.editTeam = false;
-      this.service.updateTeam(data, id).subscribe(
+      this.service.updateTeam(data,id).subscribe(
         error => {
-          console.log(error);
+          console.log(error)
         });
     }
     else{
       this.service.createTeam(data).subscribe(
         error => {
-          console.log(error);
+          console.log(error)
         });
-
+    
     }
-
-    this.router.navigateByUrl('/showTeam');
+   
+   this.router.navigateByUrl("/showTeam");
   }
 
   setCaptain(player){
-    if (this.vicecaptain == player) {
+    if(this.vicecaptain == player)
       this.vicecaptain = null;
-    }
     this.captain = player;
   }
 
   setViceCaptain(player){
-    if (this.captain == player) {
+    if(this.captain == player)
       this.captain = null;
-    }
     this.vicecaptain = player;
   }
 
   back(){
-    this.router.navigateByUrl('/createTeam');
+    this.router.navigateByUrl("/createTeam");
   }
 
 }

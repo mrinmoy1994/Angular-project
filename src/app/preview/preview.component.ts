@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { UtilityService } from './../core/utility.service';
 import { UrlConfiguration, match, contest, player } from './../core/url-configuration';
 import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
@@ -18,8 +17,8 @@ export class PreviewComponent implements OnInit {
   bat : player[] = [];
   ball : player[] = [];
 
-  constructor(private util : UtilityService, private router : Router, private location: Location) {
-    this.util.isHeaderFooterNeeded.next(true);
+  constructor(private util : UtilityService, private router : Router) {
+    
    }
 
   ngOnInit(): void {
@@ -46,8 +45,7 @@ export class PreviewComponent implements OnInit {
   }
 
   back(){
-    // this.router.navigateByUrl(this.util.backPage);
-    this.location.back();
+    this.router.navigateByUrl(this.util.backPage);
   }
 
 }

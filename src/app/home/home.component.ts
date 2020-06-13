@@ -39,9 +39,7 @@ export class HomeComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private util: UtilityService,
     private teamService: ShowTeamsService
-  ) {
-    this.util.isHeaderFooterNeeded.next(true);
-  }
+  ) {}
 
   ngOnInit() {
     this.service.getUpcomingMatchData().subscribe(
